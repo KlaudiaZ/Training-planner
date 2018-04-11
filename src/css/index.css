@@ -1,4 +1,24 @@
-body {
-    font-family: 'Lobster', cursive;
+body,
+html {
+    font-size: 100%;
     box-sizing: content-box;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background: crimson url('/img/MainMenuBg.png') no-repeat scroll;
+}
+
+.button-container {
+    width: 50%;
+    height: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.main-button {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
 }
