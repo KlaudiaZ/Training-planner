@@ -1,4 +1,4 @@
-p#start-info {
-  font-size: 3em;
-  text-align: center;
+body {
+    font-family: 'Lobster', cursive;
+    box-sizing: content-box;
 }
