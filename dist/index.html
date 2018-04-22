@@ -12,20 +12,73 @@
 </head>
 
 <body>
-    <div class="main menu">
+    <!-- MAIN MENU -->
+    <div class="main menu" data-visibility="invisible">
         <div class="button-container top">
-            <a class="button">
-                <p class="main-button" name="training-plans" id="training plans">Training Plans</p>
-            </a>
+            <button class="button main-button" name="training-plans" id="training plans">
+                <p class="button-text">Training Plans</p>
+            </button>
         </div>
         <div class="button-container bottom">
-            <a class="button">
-                <p class="main-button" name="exercises" id="exercises">Exercises</p>
-            </a>
+            <button class="button main-button" name="exercises" id="exercises">
+                <p class="button-text">Exercises</p>
+            </button>
         </div>
     </div>
-    <div class="main plans"></div>
-    <div class="main exercises"></div>
+    <!-- TRAINING PLANS -->
+    <div class="main plans" data-visibility="invisible">
+        <div class="button-container">
+            <button class="button main-button" name="add-plan" id="add-plan">
+                <p class="button-text">Add plan</p>
+            </button>
+        </div>
+        <div class="button-container">
+            <button class="button main-button" name="plan" id="plan-1">
+                <p class="button-text">Plan A</p>
+            </button>
+        </div>
+        <div class="button-container">
+            <button class="button main-button" name="plan" id="plan-2">
+                <p class="button-text">Plan B</p>
+            </button>
+        </div>
+    </div>
+    <!-- EXERCISE LIST -->
+    <div class="main exercises" data-visibility="visible">
+        <div class="exercises-menu">
+
+        </div>
+        <div class="exercise" id="1">
+            <div class="name">
+                <p>Example1</p>
+            </div>
+            <div class="series">
+                <p>3</p>
+            </div>
+            <div class="reps">
+                <p>15</p>
+            </div>
+            <div class="weight">
+                <p>20kg</p>
+            </div>
+            <div class="misc"><img src="img/plus.png"></div>
+        </div>
+        <div class="exercise" id="1">
+            <div class="name">
+                <p>Example2</p>
+            </div>
+            <div class="series">
+                <p>2</p>
+            </div>
+            <div class="reps">
+                <p>6</p>
+            </div>
+            <div class="weight">
+                <p>N/A</p>
+            </div>
+            <div class="misc"><img src="img/plus.png"></div>
+        </div>
+    </div>
 </body>
 
 </html>

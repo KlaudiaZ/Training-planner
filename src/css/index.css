@@ -1,24 +1,137 @@
-body,
-html {
-    font-size: 100%;
+* {
+    font-family: 'Lobster', cursive;
     box-sizing: content-box;
 }
 
+[data-visibility="invisible"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    visibility: hidden;
+}
+
+[data-visibility="visible"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    visibility: visible;
+}
+
+
+/*----------++++++++++---------- TAGS ----------++++++++++----------*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*----------++++++++++---------- CLASSES ----------++++++++++----------*/
+
+
+/*-----GENERAL-----*/
+
 .main {
-    width: 100%;
-    height: 100%;
-    background: crimson url('/img/MainMenuBg.png') no-repeat scroll;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
 }
 
 .button-container {
-    width: 50%;
-    height: 25%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 50vw;
+    height: 15vh;
+    margin: 0;
+    padding: 0;
+}
+
+.button-text {
+    margin: auto;
+    font-size: 1.5rem;
+    width: 100%;
+    vertical-align: middle;
 }
 
 .main-button {
-    font-family: 'Lobster', cursive;
-    font-size: 2rem;
-    background-color: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+
+/*-----MENU-----*/
+
+.main.menu {
+    background: black url('/img/MainMenuBg.png') no-repeat scroll;
+    border: 1rem solid rgba(191, 147, 115, 0.82);
+}
+
+.menu .main-button {
+    background-color: rgba(24, 25, 24, 0.7);
+}
+
+.menu .button-text {
+    color: rgb(216, 190, 55);
+}
+
+
+/*-----PLANS-----*/
+
+.main.plans {
+    background: black url('/img/PlansBg.png') no-repeat scroll;
+    border: 1rem solid rgba(253, 107, 0, 0.97);
+}
+
+.plans .main-button {
+    background-color: rgba(158, 151, 140, 0.7);
+}
+
+.plans .button-text {
+    color: rgb(5, 1, 66);
+}
+
+
+/*-----EXERCISES-----*/
+
+
+/*----------++++++++++---------- EVENTS ----------++++++++++----------*/
+
+.menu .main-button:hover {
+    background-color: rgb(216, 190, 55);
+}
+
+.menu .main-button:hover .button-text {
+    color: rgba(24, 25, 24, 0.7);
+}
+
+.menu .main-button:active .button-text {
+    margin-top: 2px;
+}
+
+.menu .main-button:active {
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.plans .main-button:hover {
+    background-color: rgb(5, 1, 66);
+}
+
+.plans .main-button:hover .button-text {
+    color: rgba(158, 151, 140, 0.7);
+}
+
+.plans .main-button:active {
+    margin-top: 2px;
+    margin-left: 2px;
 }
