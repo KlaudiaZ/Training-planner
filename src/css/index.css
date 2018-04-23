@@ -27,6 +27,17 @@ body {
     padding: 0;
 }
 
+img {
+    position: absolute;
+    width: 1.5rem;
+    top: calc(50% - 0.75rem);
+    left: 5px;
+}
+
+p {
+    text-align: center;
+}
+
 
 /*----------++++++++++---------- CLASSES ----------++++++++++----------*/
 
@@ -102,6 +113,72 @@ body {
 
 
 /*-----EXERCISES-----*/
+
+.main.exercises {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    background: black url('/img/ExercisesBg.png') no-repeat scroll;
+    border: 1rem solid rgb(51, 231, 137);
+}
+
+.exercises-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #ffffe096;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.exercise {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffe096;
+    border: 1px solid black;
+}
+
+.name {
+    width: 33%;
+    margin-left: 2%
+}
+
+.series {
+    width: 15%;
+}
+
+.reps {
+    width: 15%;
+}
+
+.weight {
+    width: 20%;
+}
+
+.misc {
+    width: 15%;
+    position: relative;
+}
+
+.add-exercise {
+    width: 20%;
+    text-align: center;
+}
+
+.sort-exercises {
+    width: 20%;
+    text-align: center;
+}
 
 
 /*----------++++++++++---------- EVENTS ----------++++++++++----------*/
