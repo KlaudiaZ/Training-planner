@@ -31,7 +31,7 @@ img {
     position: absolute;
     width: 1.5rem;
     top: calc(50% - 0.75rem);
-    left: 5px;
+    left: calc(50% - 0.75rem);
 }
 
 p {
@@ -146,6 +146,10 @@ p {
     padding: 0;
     background-color: #ffffe096;
     border: 1px solid black;
+}
+
+.exercises .main-button {
+    background-color: transparent;
 }
 
 .name {
