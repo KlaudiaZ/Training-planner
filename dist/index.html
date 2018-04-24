@@ -13,9 +13,9 @@
 
 <body>
     <!-- MAIN MENU -->
-    <div class="main menu" data-visibility="invisible">
+    <div class="main menu" data-visibility="invisible" id="main-menu">
         <div class="button-container top">
-            <button class="button main-button" name="training-plans" id="training plans">
+            <button class="button main-button" name="training-plans" id="training-plans-button">
                 <p class="button-text">Training Plans</p>
             </button>
         </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <!-- TRAINING PLANS -->
-    <div class="main plans" data-visibility="invisible">
+    <div class="main plans" data-visibility="visible" id="training-plans-menu">
         <div class="button-container">
             <button class="button main-button" name="add-plan" id="add-plan">
                 <p class="button-text">Add plan</p>
@@ -42,22 +42,35 @@
                 <p class="button-text">Plan B</p>
             </button>
         </div>
+        <div class="button-container">
+            <button class="button main-button" name="go-back" id="go-back-plans">
+                <p class="button-text">Back</p>
+            </button>
+        </div>
+        <div class="pop-up">
+
+        </div>
     </div>
     <!-- EXERCISE LIST -->
-    <div class="main exercises" data-visibility="visible">
+    <div class="main exercises" data-visibility="invisible" id="exercises-list">
         <div class="exercises-menu">
             <div class="add-exercise">
-                <button class="button main-button">
+                <button class="button main-button" id="add-exercise">
                     <p class="button-text">Add</p>
                 </button>
             </div>
             <div class="sort-exercises">
-                <button class="button main-button">
+                <button class="button main-button" id="sort-exercises">
                     <p class="button-text">Sort</p>
                 </button>
             </div>
+            <div class="go-back">
+                <button class="button main-button" id="go-back-exercises">
+                    <p class="button-text">Back</p>
+                </button>
+            </div>
         </div>
-        <div class="exercise" id="1">
+        <div class="exercise" id="exercise-1">
             <div class="name row">
                 <p>Hip thrusts</p>
             </div>
@@ -72,7 +85,7 @@
             </div>
             <div class="misc row"><button class="button main-button"><img src="img/plus.png"></button></div>
         </div>
-        <div class="exercise" id="2">
+        <div class="exercise" id="exercise-2">
             <div class="name row">
                 <p>Squats</p>
             </div>
