@@ -26,7 +26,7 @@
         </div>
     </div>
     <!-- TRAINING PLANS -->
-    <div class="main plans" data-visibility="visible" id="training-plans-menu">
+    <div class="main plans" data-visibility="invisible" id="training-plans-menu">
         <div class="button-container">
             <button class="button main-button" name="add-plan" id="add-plan">
                 <p class="button-text">Add plan</p>
@@ -52,7 +52,7 @@
         </div>
     </div>
     <!-- EXERCISE LIST -->
-    <div class="main exercises" data-visibility="invisible" id="exercises-list">
+    <div class="main exercises" data-visibility="visible" id="exercises-list">
         <div class="exercises-menu">
             <div class="add-exercise">
                 <button class="button main-button" id="add-exercise">
@@ -68,6 +68,18 @@
                 <button class="button main-button" id="go-back-exercises">
                     <p class="button-text">Back</p>
                 </button>
+            </div>
+        </div>
+        <div id="new-exercise-form">
+            <div id="exercise-form-content">
+                <p>Exercise name</p>
+                <input type="text" id="exercise-name">
+                <p>Number of repetitions</p>
+                <input type="text" id="exercise-reps">
+                <p>Number of series</p>
+                <input type="text" id="exercise-series">
+                <p>Weight (optional)</p>
+                <input type="text" id="exercise-weight">
             </div>
         </div>
         <div class="exercise" id="exercise-1">

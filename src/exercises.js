@@ -3,13 +3,13 @@ import $ from 'jquery';
 export const bindBackButtonOnExercises = () => {
     $('#go-back-exercises').click((e) => {
         $('#main-menu').attr('data-visibility', 'visible');
-        $('#exercises-menu').attr('data-visibility', 'invisible');
+        $('#exercises-list').attr('data-visibility', 'invisible');
     });
 }
 
 export const bindAddButtonOnExercises = () => {
     $('#add-exercise').click((e) => {
-
+        showExerciseForm();
     });
 }
 
@@ -32,4 +32,8 @@ const createNewExercise = (id, name, series, reps, weight) => {
         <img src="img/plus.png">
         </button>
         </div>`)
+}
+
+const showExerciseForm = () => {
+
 }

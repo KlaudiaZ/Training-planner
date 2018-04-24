@@ -9,7 +9,7 @@ export const bindTrainingPlansButton = () => {
 
 export const bindExercisesButton = () => {
     $('#exercises').click((e) => {
-        $('#exercises-menu').attr('data-visibility', 'visible');
+        $('#exercises-list').attr('data-visibility', 'visible');
         $('#main-menu').attr('data-visibility', 'invisible');
     });
 }
