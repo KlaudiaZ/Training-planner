@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'signikaregular';
+    src: url('/fonts/signika-regular-webfont.woff2') format('woff2'), url('/fonts/signika-regular-webfont.woff') format('woff'), url('/fonts/Signika-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-    font-family: 'Lobster', cursive;
+    font-family: 'signikaregular', sans-serif;
     box-sizing: content-box;
 }
 
@@ -115,16 +122,17 @@ p {
 /*-----EXERCISES-----*/
 
 .main.exercises {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     box-sizing: border-box;
     background: black url('/img/ExercisesBg.png') no-repeat scroll;
     border: 1rem solid rgb(51, 231, 137);
+    justify-content: flex-start;
+    overflow: scroll;
+    position: relative;
 }
 
 .exercises-menu {
     width: 100%;
+    min-height: 7%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -141,11 +149,13 @@ p {
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
+    min-height: 8%;
     position: relative;
     margin: 0;
     padding: 0;
     background-color: #ffffe096;
     border: 1px solid black;
+    font-size: 1.1rem;
 }
 
 .exercises .main-button {
@@ -154,7 +164,18 @@ p {
 
 .name {
     width: 33%;
-    margin-left: 2%
+    margin-left: 2%;
+    position: relative;
+    min-height: 100%;
+    padding: 17.6px 0;
+}
+
+.name>p {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    margin: 0;
+    min-height: calc(100% - 35.2px);
 }
 
 .series {
@@ -177,11 +198,13 @@ p {
 .add-exercise {
     width: 20%;
     text-align: center;
+    background-color: #bfffcc99;
 }
 
 .sort-exercises {
     width: 20%;
     text-align: center;
+    background-color: #bfffcc99;
 }
 
 
@@ -193,10 +216,6 @@ p {
 
 .menu .main-button:hover .button-text {
     color: rgba(24, 25, 24, 0.7);
-}
-
-.menu .main-button:active .button-text {
-    margin-top: 2px;
 }
 
 .menu .main-button:active {
@@ -213,6 +232,16 @@ p {
 }
 
 .plans .main-button:active {
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.exercises .main-button:active {
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.exercises .main-button:active img {
     margin-top: 2px;
     margin-left: 2px;
 }
