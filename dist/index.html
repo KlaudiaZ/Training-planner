@@ -55,7 +55,7 @@
     <div class="main exercises" data-visibility="visible" id="exercises-list">
         <div class="exercises-menu">
             <div class="add-exercise">
-                <button class="button main-button" id="add-exercise">
+                <button class="button main-button" id="add-exercise-main">
                     <p class="button-text">Add</p>
                 </button>
             </div>
@@ -70,16 +70,17 @@
                 </button>
             </div>
         </div>
-        <div id="new-exercise-form">
+        <div id="new-exercise-form" data-visibility="invisible">
             <div id="exercise-form-content">
                 <p>Exercise name</p>
-                <input type="text" id="exercise-name">
-                <p>Number of repetitions</p>
-                <input type="text" id="exercise-reps">
+                <input class="form-input" type="text" id="exercise-name">
                 <p>Number of series</p>
-                <input type="text" id="exercise-series">
+                <input class="form-input" type="text" id="exercise-series">
+                <p>Number of repetitions</p>
+                <input class="form-input" type="text" id="exercise-reps">
                 <p>Weight (optional)</p>
-                <input type="text" id="exercise-weight">
+                <input class="form-input" type="text" id="exercise-weight">
+                <button class="button main-button" id="add-exercise-form">Add</button>
             </div>
         </div>
         <div class="exercise" id="exercise-1">
@@ -100,6 +101,36 @@
         <div class="exercise" id="exercise-2">
             <div class="name row">
                 <p>Squats</p>
+            </div>
+            <div class="series row">
+                <p>2</p>
+            </div>
+            <div class="reps row">
+                <p>6</p>
+            </div>
+            <div class="weight row">
+                <p>N/A</p>
+            </div>
+            <div class="misc row"><button class="button main-button"><img src="img/plus.png"></button></div>
+        </div>
+        <div class="exercise" id="exercise-3">
+            <div class="name row">
+                <p>Very long example of a very long exercise name</p>
+            </div>
+            <div class="series row">
+                <p>2</p>
+            </div>
+            <div class="reps row">
+                <p>6</p>
+            </div>
+            <div class="weight row">
+                <p>N/A</p>
+            </div>
+            <div class="misc row"><button class="button main-button"><img src="img/plus.png"></button></div>
+        </div>
+        <div class="exercise" id="exercise-4">
+            <div class="name row">
+                <p>Moderate length exercise name</p>
             </div>
             <div class="series row">
                 <p>2</p>
