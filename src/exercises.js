@@ -1,11 +1,11 @@
 import $ from 'jquery';
 
-// clear form after adding exercise
 // validate inputs
 // attach 'kg' to 'weight' field
 // write N/A if 'weight' is left empty
 // check for the highest id number at the beginning
-// remove the form from html, make it appear solely through JS
+// bind Sort button
+// bind Plus button (open form with filled in fields)
 
 export const bindBackButtonOnExercisesMenu = () => {
     $('#go-back-exercises').click((e) => {
@@ -16,7 +16,7 @@ export const bindBackButtonOnExercisesMenu = () => {
 
 export const bindAddButtonOnExercisesMenu = () => {
     $('#add-exercise-main').click((e) => {
-        showExerciseForm();
+        showExerciseForm("", "", "", "");
     });
 }
 
@@ -38,11 +38,22 @@ const createNewExercise = (id, name, series, reps, weight) => {
         <button class="button main-button">
         <img src="img/plus.png">
         </button>
-        </div>`))
+        </div>`));
 }
 
-const showExerciseForm = () => {
-    $('#new-exercise-form').attr('data-visibility', 'visible');
+const showExerciseForm = (name, series, reps, weight) => {
+    $('#exercises-list').append($('<div id="new-exercise-form" data-visibility="visible">').html(`
+            <div id="exercise-form-content">
+            <p>Exercise name</p>
+            <input class="form-input" type="text" id="exercise-name" value="${name}">
+            <p>Number of series</p>
+            <input class="form-input" type="text" id="exercise-series" value="${series}">
+            <p>Number of repetitions</p>
+            <input class="form-input" type="text" id="exercise-reps" value="${reps}">
+            <p>Weight (kg, optional)</p>
+            <input class="form-input" type="text" id="exercise-weight" value="${weight}">
+            <button class="button main-button" id="add-exercise-form">Add</button>
+        </div>`));
     bindAreaAroundForm();
     bindAddExerciseButton();
 }
@@ -56,7 +67,7 @@ const bindAreaAroundForm = () => {
 }
 
 const hideExerciseForm = () => {
-    $('#new-exercise-form').attr('data-visibility', 'invisible');
+    $('#new-exercise-form').remove();
 }
 
 const bindAddExerciseButton = () => {
@@ -66,7 +77,24 @@ const bindAddExerciseButton = () => {
 }
 
 const addExercise = () => {
-    console.log('your exercise should be added here');
-    createNewExercise("10" /*add id-check*/ , $('#exercise-name').val(), $('#exercise-series').val(), $('#exercise-reps').val(), $('#exercise-weight').val());
+    const exercise = validateInputs();
+    createNewExercise("10" /*add id-check*/ , exercise.name, exercise.series, exercise.reps, exercise.weight);
     hideExerciseForm();
+}
+
+const validateInputs = () => {
+    const exercise = {
+        id: "1",
+        name: $('#exercise-name').val(),
+        series: $('#exercise-series').val(),
+        reps: $('#exercise-reps').val(),
+        weight: $('#exercise-weight').val()
+    };
+    Object.values(exercise).forEach((val) => {
+        console.log(val);
+        // if (val === "") {
+        //     alert("All fields must be filled!");
+        // }
+    });
+    return exercise;
 }
