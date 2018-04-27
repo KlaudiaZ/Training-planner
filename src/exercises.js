@@ -1,8 +1,5 @@
 import $ from 'jquery';
 
-// validate inputs
-// attach 'kg' to 'weight' field
-// write N/A if 'weight' is left empty
 // check for the highest id number at the beginning
 // bind Sort button
 // bind Plus button (open form with filled in fields)
@@ -47,11 +44,11 @@ const showExerciseForm = (name, series, reps, weight) => {
             <p>Exercise name</p>
             <input class="form-input" type="text" id="exercise-name" value="${name}">
             <p>Number of series</p>
-            <input class="form-input" type="text" id="exercise-series" value="${series}">
+            <input class="form-input" type="number" pattern="[0-9]" id="exercise-series" value="${series}">
             <p>Number of repetitions</p>
-            <input class="form-input" type="text" id="exercise-reps" value="${reps}">
+            <input class="form-input" type="number" pattern="[0-9]" id="exercise-reps" value="${reps}">
             <p>Weight (kg, optional)</p>
-            <input class="form-input" type="text" id="exercise-weight" value="${weight}">
+            <input class="form-input" type="number" pattern="[0-9]" id="exercise-weight" value="${weight}">
             <button class="button main-button" id="add-exercise-form">Add</button>
         </div>`));
     bindAreaAroundForm();
@@ -77,24 +74,39 @@ const bindAddExerciseButton = () => {
 }
 
 const addExercise = () => {
-    const exercise = validateInputs();
-    createNewExercise("10" /*add id-check*/ , exercise.name, exercise.series, exercise.reps, exercise.weight);
-    hideExerciseForm();
+    const exercise = getFormInputValues();
+    validateInputs(exercise);
+
 }
 
-const validateInputs = () => {
+const getFormInputValues = () => {
     const exercise = {
         id: "1",
         name: $('#exercise-name').val(),
         series: $('#exercise-series').val(),
-        reps: $('#exercise-reps').val(),
+        repetitions: $('#exercise-reps').val(),
         weight: $('#exercise-weight').val()
     };
-    Object.values(exercise).forEach((val) => {
-        console.log(val);
-        // if (val === "") {
-        //     alert("All fields must be filled!");
-        // }
-    });
     return exercise;
+}
+
+const validateInputs = (exercise) => {
+    let validation = true;
+    Object.entries(exercise).forEach(([key, value]) => {
+        if (key !== "weight") {
+            if (value.trim() === "") {
+                alert(key + " cannot be empty!");
+                validation = false;
+            }
+        } else {
+            console.log(key + value);
+            value.trim() === "" ?
+                exercise.weight = "N/A" :
+                exercise.weight += "kg";
+        }
+    });
+    if (validation === true) {
+        createNewExercise("10" /*add id-check*/ , exercise.name, exercise.series, exercise.repetitions, exercise.weight);
+        hideExerciseForm();
+    }
 }
