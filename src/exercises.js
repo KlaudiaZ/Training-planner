@@ -1,8 +1,7 @@
 import $ from 'jquery';
 import { saveExerciseToStorage } from './storage';
+import { createNewId } from './idGenerator';
 
-// create exercise storage
-// check for the highest id number at the beginning
 // bind Sort button
 // bind Plus button (open form with filled in fields)
 
@@ -20,7 +19,7 @@ export const bindAddButtonOnExercisesMenu = () => {
 }
 
 export const createNewExercise = (id, name, series, reps, weight) => {
-    $('#exercises-list').append($(`<div class="exercise" id="exercise-${id}">`)
+    $('#exercises-list').append($(`<div class="exercise" id="${id}">`)
         .html(`<div class="name row">
         <p>${name}</p>
         </div>
@@ -83,7 +82,7 @@ const addExercise = () => {
 
 const getFormInputValues = () => {
     const exercise = {
-        id: "1",
+        id: createNewId(),
         name: $('#exercise-name').val(),
         series: $('#exercise-series').val(),
         repetitions: $('#exercise-reps').val(),
@@ -105,7 +104,7 @@ const validateInputs = (exercise) => {
         }
     });
     if (validation === true) {
-        createNewExercise("10" /*add id-check*/ , exercise.name, exercise.series, exercise.repetitions, exercise.weight);
+        createNewExercise(exercise.id, exercise.name, exercise.series, exercise.repetitions, exercise.weight);
         hideExerciseForm();
         saveExerciseToStorage(exercise);
     }

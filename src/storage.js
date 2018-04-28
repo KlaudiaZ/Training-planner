@@ -13,7 +13,7 @@ export const importDataFromStorage = () => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
     if (exercises) {
         exercises.forEach((exercise) => {
-            createNewExercise("10" /*add id-check*/ , exercise.name, exercise.series, exercise.repetitions, exercise.weight);
+            createNewExercise(exercise.id, exercise.name, exercise.series, exercise.repetitions, exercise.weight);
         });
     }
 
