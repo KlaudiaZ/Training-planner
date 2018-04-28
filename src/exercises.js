@@ -2,17 +2,22 @@ import $ from 'jquery';
 import { saveExerciseToStorage } from './storage';
 import { createNewId } from './idGenerator';
 
-// bind Sort button
 // bind Plus button (open form with filled in fields)
+// bind Sort button
 
-export const bindBackButtonOnExercisesMenu = () => {
+export const exercisesInit = () => {
+    bindBackButtonOnExercisesMenu();
+    bindAddButtonOnExercisesMenu();
+}
+
+const bindBackButtonOnExercisesMenu = () => {
     $('#go-back-exercises').click((e) => {
         $('#main-menu').attr('data-visibility', 'visible');
         $('#exercises-list').attr('data-visibility', 'invisible');
     });
 }
 
-export const bindAddButtonOnExercisesMenu = () => {
+const bindAddButtonOnExercisesMenu = () => {
     $('#add-exercise-main').click((e) => {
         showExerciseForm("", "", "", "");
     });
