@@ -1,5 +1,7 @@
 import $ from 'jquery';
+import { saveExerciseToStorage } from './storage';
 
+// create exercise storage
 // check for the highest id number at the beginning
 // bind Sort button
 // bind Plus button (open form with filled in fields)
@@ -17,7 +19,7 @@ export const bindAddButtonOnExercisesMenu = () => {
     });
 }
 
-const createNewExercise = (id, name, series, reps, weight) => {
+export const createNewExercise = (id, name, series, reps, weight) => {
     $('#exercises-list').append($(`<div class="exercise" id="exercise-${id}">`)
         .html(`<div class="name row">
         <p>${name}</p>
@@ -99,14 +101,19 @@ const validateInputs = (exercise) => {
                 validation = false;
             }
         } else {
-            console.log(key + value);
-            value.trim() === "" ?
-                exercise.weight = "N/A" :
-                exercise.weight += "kg";
+            addSuffixToWeightField(value, exercise);
         }
     });
     if (validation === true) {
         createNewExercise("10" /*add id-check*/ , exercise.name, exercise.series, exercise.repetitions, exercise.weight);
         hideExerciseForm();
+        saveExerciseToStorage(exercise);
     }
+}
+
+export const addSuffixToWeightField = (val, exercise) => {
+    val.trim() === "" ?
+        exercise.weight = "N/A" :
+        exercise.weight += "kg";
+    return exercise;
 }
