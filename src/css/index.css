@@ -80,6 +80,13 @@ p {
     margin-top: 20px;
 }
 
+#modify-exercise-form {
+    border: 1px solid black;
+    width: 20%;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
 #exercise-form-content>p,
 input {
     margin: 0px;
@@ -149,7 +156,7 @@ input {
 /*-----MENU-----*/
 
 .main.menu {
-    background: black url('/img/MainMenuBg.png') no-repeat scroll;
+    background: black url('/img/MainMenuBg.jpg') center scroll;
     border: 1rem solid rgba(191, 147, 115, 0.82);
 }
 
@@ -165,7 +172,7 @@ input {
 /*-----PLANS-----*/
 
 .main.plans {
-    background: black url('/img/PlansBg.png') no-repeat scroll;
+    background: black url('/img/PlansBg.png') center scroll;
     border: 1rem solid rgba(253, 107, 0, 0.97);
 }
 
@@ -174,7 +181,7 @@ input {
 }
 
 .plans .button-text {
-    color: rgb(5, 1, 66);
+    color: black;
 }
 
 
@@ -182,10 +189,10 @@ input {
 
 .main.exercises {
     box-sizing: border-box;
-    background: black url('/img/ExercisesBg.png') no-repeat scroll;
-    border: 1rem solid rgb(51, 231, 137);
+    background: black url('/img/ExercisesBg.jpg') center scroll;
+    border: 1rem solid #ed0006a8;
     justify-content: flex-start;
-    overflow: scroll;
+    overflow: auto;
     position: relative;
 }
 
@@ -265,19 +272,19 @@ input {
 .add-exercise {
     width: 20%;
     text-align: center;
-    background-color: #bfffcc99;
+    background-color: #fffdbf99;
 }
 
 .sort-exercises {
     width: 20%;
     text-align: center;
-    background-color: #bfffcc99;
+    background-color: #fffdbf99;
 }
 
 .go-back {
     width: 20%;
     text-align: center;
-    background-color: #bfffcc99;
+    background-color: #fffdbf99;
 }
 
 .form-input {

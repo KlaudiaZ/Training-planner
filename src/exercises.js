@@ -2,12 +2,13 @@ import $ from 'jquery';
 import { saveExerciseToStorage } from './storage';
 import { createNewId } from './idGenerator';
 
-// bind Plus button (open form with filled in fields)
+// bind Plus button (open form with filled in fields and delete option)
 // bind Sort button
 
 export const exercisesInit = () => {
     bindBackButtonOnExercisesMenu();
     bindAddButtonOnExercisesMenu();
+    bindMiscButton();
 }
 
 const bindBackButtonOnExercisesMenu = () => {
@@ -19,7 +20,26 @@ const bindBackButtonOnExercisesMenu = () => {
 
 const bindAddButtonOnExercisesMenu = () => {
     $('#add-exercise-main').click((e) => {
-        showExerciseForm("", "", "", "");
+        showExerciseForm("", "", "", "", "add");
+    });
+}
+
+const bindModifyExerciseButton = () => {
+    $('#modify-exercise-form').click((e) => {
+        // get id, make the modification directly in storage, re-run storage import
+    })
+}
+
+const bindMiscButton = () => {
+    $('.exercise').bind('click', function() {
+        if (event.target.nodeName === "IMG" || event.target.nodeName === "BUTTON") {
+            showExerciseForm($(this).children('div')[0].textContent.trim(),
+                $(this).children('div')[1].textContent.trim(),
+                $(this).children('div')[2].textContent.trim(),
+                parseInt($(this).children('div')[3].textContent.trim()),
+                "modify"
+            );
+        }
     });
 }
 
@@ -44,7 +64,7 @@ export const createNewExercise = (id, name, series, reps, weight) => {
         </div>`));
 }
 
-const showExerciseForm = (name, series, reps, weight) => {
+const showExerciseForm = (name, series, reps, weight, mode) => {
     $('#exercises-list').append($('<div id="new-exercise-form" data-visibility="visible">').html(`
             <div id="exercise-form-content">
             <p>Exercise name</p>
@@ -55,7 +75,7 @@ const showExerciseForm = (name, series, reps, weight) => {
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-reps" value="${reps}">
             <p>Weight (kg, optional)</p>
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-weight" value="${weight}">
-            <button class="button main-button" id="add-exercise-form">Add</button>
+            <button class="button main-button" id="${mode}-exercise-form">${mode}</button>
         </div>`));
     bindAreaAroundForm();
     bindAddExerciseButton();
@@ -80,18 +100,18 @@ const bindAddExerciseButton = () => {
 }
 
 const addExercise = () => {
-    const exercise = getFormInputValues();
+    const exercise = getFormInputValues(createNewId(), $('#exercise-name').val(), $('#exercise-series').val(), $('#exercise-reps').val(), $('#exercise-weight').val());
     validateInputs(exercise);
 
 }
 
-const getFormInputValues = () => {
+const getFormInputValues = (id, name, series, repetitions, weight) => {
     const exercise = {
-        id: createNewId(),
-        name: $('#exercise-name').val(),
-        series: $('#exercise-series').val(),
-        repetitions: $('#exercise-reps').val(),
-        weight: $('#exercise-weight').val()
+        id: id,
+        name: name,
+        series: series,
+        repetitions: repetitions,
+        weight: weight
     };
     return exercise;
 }
