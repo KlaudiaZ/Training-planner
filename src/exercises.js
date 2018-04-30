@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import { saveExerciseToStorage } from './storage';
+import { saveExerciseToStorage, deleteItemFromStorage, updateModifiedItem } from './storage';
 import { createNewId } from './idGenerator';
 
-// bind Plus button (open form with filled in fields and delete option)
 // bind Sort button
+// allow '/' in inputs
 
 export const exercisesInit = () => {
     bindBackButtonOnExercisesMenu();
@@ -26,9 +26,42 @@ const bindAddButtonOnExercisesMenu = () => {
 
 const bindModifyExerciseButton = () => {
     $('#modify-exercise-form').click((e) => {
-        // get id, make the modification directly in storage, re-run storage import
-    })
+        const exercise = getFormInputValues();
+        if (validateInputs(exercise)) {
+            modifyExercise(getElementID(e.target), exercise);
+            hideExerciseForm();
+            updateModifiedItem(getElementID(e.target), exercise);
+        }
+    });
 }
+
+const bindDeleteExerciseButton = () => {
+    $('#delete-exercise-form').click((e) => {
+        deleteExercise(getElementID(e.target));
+        hideExerciseForm();
+        deleteItemFromStorage(getElementID(e.target));
+    });
+}
+
+const getElementID = (target) => {
+    const id = target.parentElement.dataset.item;
+    return id;
+}
+
+const deleteExercise = (id) => {
+    $(`#${id}`).remove();
+}
+
+const modifyExercise = (id, exercise) => {
+    $(`#${id}`).children().each(function(entryIndex) {
+        Object.entries(exercise).forEach(([key, value], exerciseIndex) => {
+            if ((entryIndex + 1) === exerciseIndex) {
+                this.textContent = value;
+            }
+        });
+    });
+}
+
 
 const bindMiscButton = () => {
     $('.exercise').bind('click', function() {
@@ -37,7 +70,8 @@ const bindMiscButton = () => {
                 $(this).children('div')[1].textContent.trim(),
                 $(this).children('div')[2].textContent.trim(),
                 parseInt($(this).children('div')[3].textContent.trim()),
-                "modify"
+                "modify",
+                $(event.currentTarget)[0].id
             );
         }
     });
@@ -64,9 +98,9 @@ export const createNewExercise = (id, name, series, reps, weight) => {
         </div>`));
 }
 
-const showExerciseForm = (name, series, reps, weight, mode) => {
+const showExerciseForm = (name, series, reps, weight, mode, id) => {
     $('#exercises-list').append($('<div id="new-exercise-form" data-visibility="visible">').html(`
-            <div id="exercise-form-content">
+            <div id="exercise-form-content" data-item="${id}">
             <p>Exercise name</p>
             <input class="form-input" type="text" id="exercise-name" value="${name}">
             <p>Number of series</p>
@@ -77,6 +111,11 @@ const showExerciseForm = (name, series, reps, weight, mode) => {
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-weight" value="${weight}">
             <button class="button main-button" id="${mode}-exercise-form">${mode}</button>
         </div>`));
+    if (mode === "modify") {
+        $('#exercise-form-content').append($('<button class="button main-button" id="delete-exercise-form">Delete</button>'));
+        bindModifyExerciseButton();
+        bindDeleteExerciseButton();
+    }
     bindAreaAroundForm();
     bindAddExerciseButton();
 }
@@ -100,18 +139,18 @@ const bindAddExerciseButton = () => {
 }
 
 const addExercise = () => {
-    const exercise = getFormInputValues(createNewId(), $('#exercise-name').val(), $('#exercise-series').val(), $('#exercise-reps').val(), $('#exercise-weight').val());
-    validateInputs(exercise);
+    const exercise = getFormInputValues();
+    saveExercise(validateInputs(exercise), exercise);
 
 }
 
 const getFormInputValues = (id, name, series, repetitions, weight) => {
     const exercise = {
-        id: id,
-        name: name,
-        series: series,
-        repetitions: repetitions,
-        weight: weight
+        id: createNewId(),
+        name: $('#exercise-name').val(),
+        series: $('#exercise-series').val(),
+        repetitions: $('#exercise-reps').val(),
+        weight: $('#exercise-weight').val()
     };
     return exercise;
 }
@@ -128,10 +167,15 @@ const validateInputs = (exercise) => {
             addSuffixToWeightField(value, exercise);
         }
     });
+    return validation;
+}
+
+const saveExercise = (validation, exercise) => {
     if (validation === true) {
         createNewExercise(exercise.id, exercise.name, exercise.series, exercise.repetitions, exercise.weight);
         hideExerciseForm();
         saveExerciseToStorage(exercise);
+        bindMiscButton();
     }
 }
 

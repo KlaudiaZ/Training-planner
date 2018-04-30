@@ -1,5 +1,7 @@
 import { addSuffixToWeightField, createNewExercise } from './exercises';
 
+// delete and modify items in storage
+
 export const saveExerciseToStorage = (exercise) => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
     if (!exercises) {
@@ -17,4 +19,26 @@ export const importDataFromStorage = () => {
         });
     }
 
+}
+
+export const deleteItemFromStorage = (id) => {
+    let exercises = JSON.parse(localStorage.getItem('exercises'));
+    for (let i = 0; i < exercises.length; i++) {
+        if (exercises[i].id === id) {
+            exercises.splice(i, 1);
+            break;
+        }
+    }
+    localStorage.setItem('exercises', JSON.stringify(exercises));
+}
+
+export const updateModifiedItem = (id, exercise) => {
+    let exercises = JSON.parse(localStorage.getItem('exercises'));
+    for (let i = 0; i < exercises.length; i++) {
+        if (exercises[i].id === id) {
+            exercises.splice(i, 1, exercise);
+            break;
+        }
+    }
+    localStorage.setItem('exercises', JSON.stringify(exercises));
 }
