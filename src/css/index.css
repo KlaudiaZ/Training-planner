@@ -45,7 +45,7 @@ p {
     text-align: center;
 }
 
-#new-exercise-form {
+.popup-window {
     display: block;
     position: fixed;
     z-index: 2000;
@@ -59,7 +59,7 @@ p {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-#exercise-form-content {
+.popup-window-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -116,6 +116,10 @@ input {
 
 #exercise-legend {
     min-height: 3%;
+}
+
+#exercises-wrapper {
+    width: 100%;
 }
 
 
@@ -300,6 +304,13 @@ input {
 .form-input {
     border: 1px solid black;
     width: 60%;
+}
+
+.sort {
+    border: 1px solid black;
+    width: 50%;
+    height: 3rem;
+    font-size: 1.5rem;
 }
 
 

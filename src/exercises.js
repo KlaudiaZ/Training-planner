@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { saveExerciseToStorage, deleteItemFromStorage, updateModifiedItem } from './storage';
+import { saveExerciseToStorage, deleteItemFromStorage, updateModifiedItem, sortExercises } from './storage';
 import { createNewId } from './idGenerator';
 
 // bind Sort button
@@ -9,6 +9,7 @@ export const exercisesInit = () => {
     bindBackButtonOnExercisesMenu();
     bindAddButtonOnExercisesMenu();
     bindMiscButton();
+    bindSortExercisesButton();
 }
 
 const bindBackButtonOnExercisesMenu = () => {
@@ -78,7 +79,7 @@ const bindMiscButton = () => {
 }
 
 export const createNewExercise = (id, name, series, reps, weight) => {
-    $('#exercises-list').append($(`<div class="exercise" id="${id}">`)
+    $('#exercises-wrapper').append($(`<div class="exercise" id="${id}">`)
         .html(`<div class="name row">
         <p>${name}</p>
         </div>
@@ -99,8 +100,8 @@ export const createNewExercise = (id, name, series, reps, weight) => {
 }
 
 const showExerciseForm = (name, series, reps, weight, mode, id) => {
-    $('#exercises-list').append($('<div id="new-exercise-form" data-visibility="visible">').html(`
-            <div id="exercise-form-content" data-item="${id}">
+    $('#exercises-list').append($('<div class="popup-window" id="new-exercise-form" data-visibility="visible">').html(`
+            <div class="popup-window-content" id="exercise-form-content" data-item="${id}">
             <p>Exercise name</p>
             <input class="form-input" type="text" id="exercise-name" value="${name}">
             <p>Number of series</p>
@@ -184,4 +185,44 @@ export const addSuffixToWeightField = (val, exercise) => {
         exercise.weight = "N/A" :
         exercise.weight += "kg";
     return exercise;
+}
+
+const bindSortExercisesButton = () => {
+    $('#sort-exercises').click((e) => {
+        openSortWindow();
+    });
+}
+
+const openSortWindow = () => {
+    $('#exercises-list').append($('<div class="popup-window" id="sort-options-surrounding" data-visibility="visible">').html(`
+    <div class="popup-window-content" id="sort-options">
+        <button class="button main-button sort" id="sort-default">Default</button>
+        <button class="button main-button sort" id="sort-alphabetically">A - Z</button>
+        <button class="button main-button sort" id="sort-alphabetically-reverse">Z - A</button>
+        <button class="button main-button sort" id="sort-weight">From lightest</button>
+        <button class="button main-button sort" id="sort-weight-reverse">From heaviest</button>
+    </div>`))
+    bindAreaAroundSort();
+    bindSortingWindow();
+}
+
+const bindAreaAroundSort = () => {
+    $('#sort-options-surrounding').click((e) => {
+        if (e.target === e.currentTarget) {
+            hideSortingWindow();
+        }
+    });
+}
+
+const hideSortingWindow = () => {
+    $('#sort-options-surrounding').remove();
+}
+
+const bindSortingWindow = () => {
+    $('#sort-options').click((e) => {
+        if (e.target.tagName === "BUTTON") {
+            sortExercises(e.target.id);
+            hideSortingWindow();
+        }
+    });
 }

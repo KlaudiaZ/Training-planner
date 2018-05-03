@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { addSuffixToWeightField, createNewExercise } from './exercises';
 
 // delete and modify items in storage
@@ -41,4 +42,36 @@ export const updateModifiedItem = (id, exercise) => {
         }
     }
     localStorage.setItem('exercises', JSON.stringify(exercises));
+}
+
+export const sortExercises = (mode) => {
+    let exercises = JSON.parse(localStorage.getItem('exercises'));
+    console.log(mode);
+    exercises.sort((a, b) => {
+        switch (mode) {
+            case 'sort-default':
+                return 0;
+                break;
+            case 'sort-alphabetically':
+                return a.name > b.name;
+                break;
+            case 'sort-alphabetically-reverse':
+                return a.name < b.name;
+                break;
+            case 'sort-weight':
+                return a.weight < b.weight;
+                break;
+            case 'sort-weight-reverse':
+                return a.weight > b.weight;
+                break;
+        }
+    });
+    refreshList(exercises);
+}
+
+const refreshList = (exercises) => {
+    $('#exercises-wrapper').html("");
+    exercises.forEach((exercise) => {
+        createNewExercise(exercise.id, exercise.name, exercise.series, exercise.repetitions, exercise.weight);
+    });
 }
