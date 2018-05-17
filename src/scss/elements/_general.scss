@@ -1,49 +1,4 @@
-@font-face {
-    font-family: 'signikaregular';
-    src: url('/fonts/signika-regular-webfont.woff2') format('woff2'), url('/fonts/signika-regular-webfont.woff') format('woff'), url('/fonts/Signika-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-* {
-    font-family: 'signikaregular';
-    box-sizing: content-box;
-}
-
-[data-visibility="invisible"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    visibility: hidden;
-}
-
-[data-visibility="visible"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    visibility: visible;
-}
-
-
 /*----------++++++++++---------- TAGS ----------++++++++++----------*/
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-img {
-    position: absolute;
-    width: 1.5rem;
-    top: calc(50% - 0.75rem);
-    left: calc(50% - 0.75rem);
-}
-
-p {
-    text-align: center;
-}
 
 .popup-window {
     display: block;
@@ -152,7 +107,6 @@ input {
 /*-----GENERAL-----*/
 
 .main {
-    font-family: 'signikaregular';
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -163,71 +117,34 @@ input {
     width: 100vw;
     background-position: center;
     font-size: 1.5rem;
-}
-
-.button-container {
-    width: 50vw;
-    height: 15vh;
-    margin: 0;
-    padding: 0;
-}
-
-.button-text {
-    margin: auto;
-    font-size: 1.5rem;
-    width: 100%;
-    vertical-align: middle;
-}
-
-.main-button {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: none;
-    text-transform: capitalize;
-    font-family: 'signikaregular';
-}
-
-
-/*-----MENU-----*/
-
-.main.menu {
-    background: black url('/img/MainMenuBg.jpg') center scroll;
-    border: 1rem solid rgba(191, 147, 115, 0.82);
-}
-
-.menu .main-button {
-    background-color: rgba(24, 25, 24, 0.7);
-}
-
-.menu .button-text {
-    color: rgb(216, 190, 55);
+    .button-container {
+        width: 50vw;
+        height: 15vh;
+        margin: 0;
+        padding: 0;
+        .button {
+            &.main-button {
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                text-transform: capitalize;
+                p {
+                    &.button-text {
+                        margin: auto;
+                        font-size: 1.5rem;
+                        width: 100%;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
 /*-----PLANS-----*/
-
-.main.plans {
-    background: black url('/img/PlansBg.png') center scroll;
-    border: 1rem solid rgba(253, 107, 0, 0.97);
-    overflow: auto;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.plans .button-container {
-    width: 35vw;
-}
-
-.plans .main-button {
-    background-color: rgba(158, 151, 140, 0.7);
-}
-
-.plans .button-text {
-    color: black;
-}
 
 
 /*-----EXERCISES-----*/
@@ -346,19 +263,6 @@ input {
 
 
 /*----------++++++++++---------- EVENTS ----------++++++++++----------*/
-
-.menu .main-button:hover {
-    background-color: rgb(216, 190, 55);
-}
-
-.menu .main-button:hover .button-text {
-    color: rgba(24, 25, 24, 0.7);
-}
-
-.menu .main-button:active {
-    margin-top: 2px;
-    margin-left: 2px;
-}
 
 .plans .main-button:hover {
     background-color: rgb(5, 1, 66);

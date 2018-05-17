@@ -1,0 +1,26 @@
+.main {
+    &.menu {
+        background: black url('/img/menuBg.jpg') center scroll;
+        background-size: cover;
+        border: 1rem solid rgba(109, 108, 108, 0.603);
+        .main-button {
+            background-color: rgba(109, 108, 108, 0.603);
+            border: 1rem solid rgba(0, 0, 0, 0.705);
+            p {
+                &.button-text {
+                    color: rgb(107, 240, 242);
+                }
+            }
+            &:hover {
+                background-color: rgba(55, 144, 216, 0.719);
+                p {
+                    color: rgba(24, 25, 24, 0.911);
+                }
+            }
+            &:active {
+                margin-top: 2px;
+                margin-left: 2px;
+            }
+        }
+    }
+}

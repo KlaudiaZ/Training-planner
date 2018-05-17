@@ -3,38 +3,42 @@
   src: url("/fonts/signika-regular-webfont.woff2") format("woff2"), url("/fonts/signika-regular-webfont.woff") format("woff"), url("/fonts/Signika-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
-* {
-  font-family: 'signikaregular';
-  box-sizing: content-box; }
-
-[data-visibility="invisible"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  visibility: hidden; }
-
-[data-visibility="visible"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  visibility: visible; }
-
-/*----------++++++++++---------- TAGS ----------++++++++++----------*/
+*,
+html,
 body {
+  font-family: 'signikaregular';
+  box-sizing: content-box;
   margin: 0;
   padding: 0; }
+  * [data-visibility="invisible"],
+  html [data-visibility="invisible"],
+  body [data-visibility="invisible"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    visibility: hidden; }
+  * [data-visibility="visible"],
+  html [data-visibility="visible"],
+  body [data-visibility="visible"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    visibility: visible; }
+  * img,
+  html img,
+  body img {
+    position: absolute;
+    width: 1.5rem;
+    top: calc(50% - 0.75rem);
+    left: calc(50% - 0.75rem); }
+  * p,
+  html p,
+  body p {
+    text-align: center; }
 
-img {
-  position: absolute;
-  width: 1.5rem;
-  top: calc(50% - 0.75rem);
-  left: calc(50% - 0.75rem); }
-
-p {
-  text-align: center; }
-
+/*----------++++++++++---------- TAGS ----------++++++++++----------*/
 .popup-window {
   display: block;
   position: fixed;
@@ -125,7 +129,6 @@ input {
 /*----------++++++++++---------- CLASSES ----------++++++++++----------*/
 /*-----GENERAL-----*/
 .main {
-  font-family: 'signikaregular';
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -136,57 +139,25 @@ input {
   width: 100vw;
   background-position: center;
   font-size: 1.5rem; }
-
-.button-container {
-  width: 50vw;
-  height: 15vh;
-  margin: 0;
-  padding: 0; }
-
-.button-text {
-  margin: auto;
-  font-size: 1.5rem;
-  width: 100%;
-  vertical-align: middle; }
-
-.main-button {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
-  text-transform: capitalize;
-  font-family: 'signikaregular'; }
-
-/*-----MENU-----*/
-.main.menu {
-  background: black url("/img/MainMenuBg.jpg") center scroll;
-  border: 1rem solid rgba(191, 147, 115, 0.82); }
-
-.menu .main-button {
-  background-color: rgba(24, 25, 24, 0.7); }
-
-.menu .button-text {
-  color: #d8be37; }
+  .main .button-container {
+    width: 50vw;
+    height: 15vh;
+    margin: 0;
+    padding: 0; }
+    .main .button-container .button.main-button {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      text-transform: capitalize; }
+      .main .button-container .button.main-button p.button-text {
+        margin: auto;
+        font-size: 1.5rem;
+        width: 100%;
+        vertical-align: middle; }
 
 /*-----PLANS-----*/
-.main.plans {
-  background: black url("/img/PlansBg.png") center scroll;
-  border: 1rem solid rgba(253, 107, 0, 0.97);
-  overflow: auto;
-  flex-wrap: wrap;
-  align-items: center; }
-
-.plans .button-container {
-  width: 35vw; }
-
-.plans .main-button {
-  background-color: rgba(158, 151, 140, 0.7); }
-
-.plans .button-text {
-  color: black; }
-
 /*-----EXERCISES-----*/
 .main.exercises {
   box-sizing: border-box;
@@ -285,16 +256,6 @@ input {
   font-size: 1.5rem; }
 
 /*----------++++++++++---------- EVENTS ----------++++++++++----------*/
-.menu .main-button:hover {
-  background-color: #d8be37; }
-
-.menu .main-button:hover .button-text {
-  color: rgba(24, 25, 24, 0.7); }
-
-.menu .main-button:active {
-  margin-top: 2px;
-  margin-left: 2px; }
-
 .plans .main-button:hover {
   background-color: #050142; }
 
@@ -312,5 +273,36 @@ input {
 .exercises .main-button:active img {
   margin-top: 2px;
   margin-left: 2px; }
+
+.main.menu {
+  background: black url("/img/menuBg.jpg") center scroll;
+  background-size: cover;
+  border: 1rem solid rgba(109, 108, 108, 0.603); }
+  .main.menu .main-button {
+    background-color: rgba(109, 108, 108, 0.603);
+    border: 1rem solid rgba(0, 0, 0, 0.705); }
+    .main.menu .main-button p.button-text {
+      color: #6bf0f2; }
+    .main.menu .main-button:hover {
+      background-color: rgba(55, 144, 216, 0.719); }
+      .main.menu .main-button:hover p {
+        color: rgba(24, 25, 24, 0.911); }
+    .main.menu .main-button:active {
+      margin-top: 2px;
+      margin-left: 2px; }
+
+.main.plans {
+  background: black url("/img/PlansBg.png") center scroll;
+  background-size: cover;
+  border: 1rem solid rgba(253, 107, 0, 0.97);
+  overflow: auto;
+  flex-wrap: wrap;
+  align-items: center; }
+  .main.plans .button-container {
+    width: 35vw; }
+    .main.plans .button-container .main-button {
+      background-color: rgba(158, 151, 140, 0.7); }
+      .main.plans .button-container .main-button p.button-text {
+        color: black; }
 
 /*# sourceMappingURL=index.css.map */

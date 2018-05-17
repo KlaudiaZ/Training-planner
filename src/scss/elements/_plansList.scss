@@ -1,0 +1,21 @@
+.main {
+    &.plans {
+        background: black url('/img/PlansBg.png') center scroll;
+        background-size: cover;
+        border: 1rem solid rgba(253, 107, 0, 0.97);
+        overflow: auto;
+        flex-wrap: wrap;
+        align-items: center;
+        .button-container {
+            width: 35vw;
+            .main-button {
+                background-color: rgba(158, 151, 140, 0.7);
+                p {
+                    &.button-text {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

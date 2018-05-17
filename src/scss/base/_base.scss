@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'signikaregular';
+    src: url('/fonts/signika-regular-webfont.woff2') format('woff2'), url('/fonts/signika-regular-webfont.woff') format('woff'), url('/fonts/Signika-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*,
+html,
+body {
+    font-family: 'signikaregular';
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    [data-visibility="invisible"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        visibility: hidden;
+    }
+    [data-visibility="visible"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        visibility: visible;
+    }
+    img {
+        position: absolute;
+        width: 1.5rem;
+        top: calc(50% - 0.75rem);
+        left: calc(50% - 0.75rem);
+    }
+    p {
+        text-align: center;
+    }
+}
