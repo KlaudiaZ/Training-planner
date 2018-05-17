@@ -2,8 +2,7 @@ import $ from 'jquery';
 import { saveExerciseToStorage, deleteItemFromStorage, updateModifiedItem, sortExercises } from './storage';
 import { createNewId } from './idGenerator';
 
-// bind Sort button
-// allow '/' in inputs
+// preserve ID of a modified item
 
 export const exercisesInit = () => {
     bindBackButtonOnExercisesMenu();

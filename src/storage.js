@@ -1,7 +1,8 @@
 import $ from 'jquery';
 import { addSuffixToWeightField, createNewExercise } from './exercises';
+import { createNewPlan } from './plansList';
 
-// delete and modify items in storage
+// preserve ID of a modified item
 
 export const saveExerciseToStorage = (exercise) => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
@@ -12,6 +13,15 @@ export const saveExerciseToStorage = (exercise) => {
     localStorage.setItem('exercises', JSON.stringify(exercises));
 }
 
+export const savePlanToStorage = (plan) => {
+    let plans = JSON.parse(localStorage.getItem('plans'));
+    if (!plans) {
+        plans = [];
+    }
+    plans.push(plan);
+    localStorage.setItem('plans', JSON.stringify(plans));
+}
+
 export const importDataFromStorage = () => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
     if (exercises) {
@@ -19,7 +29,12 @@ export const importDataFromStorage = () => {
             createNewExercise(exercise.id, exercise.name, exercise.series, exercise.repetitions, exercise.weight);
         });
     }
-
+    let plans = JSON.parse(localStorage.getItem('plans'));
+    if (plans) {
+        plans.forEach((plan) => {
+            createNewPlan(plan);
+        });
+    }
 }
 
 export const deleteItemFromStorage = (id) => {
