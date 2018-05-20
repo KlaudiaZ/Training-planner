@@ -26,6 +26,10 @@ body {
     left: 0;
     z-index: 1000;
     visibility: visible; }
+  * p,
+  html p,
+  body p {
+    text-align: center; }
   * img,
   html img,
   body img {
@@ -33,12 +37,43 @@ body {
     width: 1.5rem;
     top: calc(50% - 0.75rem);
     left: calc(50% - 0.75rem); }
-  * p,
-  html p,
-  body p {
-    text-align: center; }
 
-/*----------++++++++++---------- TAGS ----------++++++++++----------*/
+.main {
+  background: black url("/img/background.jpg") center scroll;
+  background-size: cover;
+  border: 1rem solid rgba(109, 108, 108, 0.603);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  font-size: 1.5rem; }
+
+.button-container {
+  width: 50vw;
+  height: 15vh;
+  margin: 0;
+  padding: 0; }
+
+.button-text {
+  margin: auto;
+  font-size: 1.5rem;
+  width: 100%;
+  vertical-align: middle; }
+
+.button {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  border: none; }
+
 .popup-window {
   display: block;
   position: fixed;
@@ -47,52 +82,50 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
   overflow: auto;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4); }
+  .popup-window .popup-window-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    min-height: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+    .popup-window .popup-window-content .form-input {
+      border: 1px solid black;
+      width: 60%;
+      font-size: 1.5rem;
+      margin: 0px;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
+    .popup-window .popup-window-content .sort {
+      border: 1px solid black;
+      width: 50%;
+      height: 3rem;
+      font-size: 1.5rem; }
+    .popup-window .popup-window-content .button {
+      border: 1px solid black;
+      width: 20%;
+      font-size: 1.5rem;
+      margin-top: 20px; }
+    .popup-window .popup-window-content p {
+      margin: 0px;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
 
-.popup-window-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  min-height: 60%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center; }
-
-#add-exercise-form {
-  border: 1px solid black;
-  width: 20%;
-  font-size: 1.5rem;
-  margin-top: 20px; }
-
-#modify-exercise-form {
-  border: 1px solid black;
-  width: 20%;
-  font-size: 1.5rem;
-  margin-top: 20px; }
-
-#delete-exercise-form {
-  border: 1px solid black;
-  width: 20%;
-  font-size: 1.5rem;
-  margin-top: 20px; }
-
-#exercise-form-content > p,
-input {
-  margin: 0px;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center; }
-
-#alert {
+.alert {
   position: fixed;
   top: 20%;
   right: 10%;
@@ -101,17 +134,114 @@ input {
   z-index: 2000;
   background-color: #fff; }
 
+.main.exercises {
+  justify-content: flex-start;
+  overflow: auto;
+  position: relative; }
+  .main.exercises .exercises-menu {
+    width: 100%;
+    min-height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #ffffe096;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; }
+    .main.exercises .exercises-menu .button-container {
+      width: 20%;
+      text-align: center;
+      background-color: #fffdbf99;
+      height: auto; }
+  .main.exercises .button {
+    background-color: transparent; }
+    .main.exercises .button:active {
+      padding-top: 2px;
+      padding-left: 2px; }
+      .main.exercises .button:active img {
+        margin-top: 2px;
+        margin-left: 2px; }
+  .main.exercises .exercise {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    min-height: 8%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffe096;
+    border: 1px solid black;
+    font-size: 1.1rem; }
+    .main.exercises .exercise .name {
+      width: 33%;
+      margin-left: 2%;
+      position: relative;
+      min-height: 100%;
+      padding: 17.6px 0; }
+      .main.exercises .exercise .name p {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        margin: 0;
+        min-height: calc(100% - 35.2px); }
+    .main.exercises .exercise .row {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center; }
+      .main.exercises .exercise .row.series {
+        width: 15%; }
+      .main.exercises .exercise .row.reps {
+        width: 15%; }
+      .main.exercises .exercise .row.weight {
+        width: 20%; }
+      .main.exercises .exercise .row.misc {
+        width: 15%;
+        position: relative; }
+
 #exercise-legend {
   min-height: 3%; }
 
 #exercises-wrapper {
   width: 100%; }
 
+.main.menu .button {
+  background-color: rgba(109, 108, 108, 0.603);
+  border: 1rem solid rgba(0, 0, 0, 0.705); }
+  .main.menu .button p.button-text {
+    color: #6bf0f2; }
+  .main.menu .button:hover {
+    background-color: rgba(55, 144, 216, 0.719); }
+    .main.menu .button:hover p {
+      color: rgba(24, 25, 24, 0.911); }
+  .main.menu .button:active {
+    margin-top: 2px;
+    margin-left: 2px; }
+
+.main.plans {
+  overflow: auto;
+  flex-wrap: wrap;
+  align-items: center; }
+  .main.plans .button-container {
+    width: 35vw; }
+    .main.plans .button-container .button {
+      background-color: rgba(158, 151, 140, 0.7); }
+      .main.plans .button-container .button p.button-text {
+        color: black; }
+      .main.plans .button-container .button:hover {
+        background-color: #050142; }
+        .main.plans .button-container .button:hover .button-text {
+          color: rgba(158, 151, 140, 0.7); }
+      .main.plans .button-container .button:active {
+        margin-top: 2px;
+        margin-left: 2px; }
+
 #form-plan-name {
   flex-grow: 0; }
-
-input {
-  font-size: 1.5rem; }
 
 #form-plan-description {
   flex-grow: 0;
@@ -125,184 +255,5 @@ input {
   font-size: 1.5rem;
   margin-top: 20px;
   background-color: #fff; }
-
-/*----------++++++++++---------- CLASSES ----------++++++++++----------*/
-/*-----GENERAL-----*/
-.main {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-position: center;
-  font-size: 1.5rem; }
-  .main .button-container {
-    width: 50vw;
-    height: 15vh;
-    margin: 0;
-    padding: 0; }
-    .main .button-container .button.main-button {
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      margin: 0;
-      text-transform: capitalize; }
-      .main .button-container .button.main-button p.button-text {
-        margin: auto;
-        font-size: 1.5rem;
-        width: 100%;
-        vertical-align: middle; }
-
-/*-----PLANS-----*/
-/*-----EXERCISES-----*/
-.main.exercises {
-  box-sizing: border-box;
-  background: black url("/img/ExercisesBg.jpg") center scroll;
-  border: 1rem solid #ed0006a8;
-  justify-content: flex-start;
-  overflow: auto;
-  position: relative; }
-
-.exercises-menu {
-  width: 100%;
-  min-height: 7%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  background-color: #ffffe096;
-  border: 1px solid black;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
-
-.exercise {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-  min-height: 8%;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  background-color: #ffffe096;
-  border: 1px solid black;
-  font-size: 1.1rem; }
-
-.exercises .main-button {
-  background-color: transparent; }
-
-.row {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center; }
-
-.name {
-  width: 33%;
-  margin-left: 2%;
-  position: relative;
-  min-height: 100%;
-  padding: 17.6px 0; }
-
-.name > p {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  margin: 0;
-  min-height: calc(100% - 35.2px); }
-
-.series {
-  width: 15%; }
-
-.reps {
-  width: 15%; }
-
-.weight {
-  width: 20%; }
-
-.misc {
-  width: 15%;
-  position: relative; }
-
-.add-exercise {
-  width: 20%;
-  text-align: center;
-  background-color: #fffdbf99; }
-
-.sort-exercises {
-  width: 20%;
-  text-align: center;
-  background-color: #fffdbf99; }
-
-.go-back {
-  width: 20%;
-  text-align: center;
-  background-color: #fffdbf99; }
-
-.form-input {
-  border: 1px solid black;
-  width: 60%; }
-
-.sort {
-  border: 1px solid black;
-  width: 50%;
-  height: 3rem;
-  font-size: 1.5rem; }
-
-/*----------++++++++++---------- EVENTS ----------++++++++++----------*/
-.plans .main-button:hover {
-  background-color: #050142; }
-
-.plans .main-button:hover .button-text {
-  color: rgba(158, 151, 140, 0.7); }
-
-.plans .main-button:active {
-  margin-top: 2px;
-  margin-left: 2px; }
-
-.exercises .main-button:active {
-  padding-top: 2px;
-  padding-left: 2px; }
-
-.exercises .main-button:active img {
-  margin-top: 2px;
-  margin-left: 2px; }
-
-.main.menu {
-  background: black url("/img/menuBg.jpg") center scroll;
-  background-size: cover;
-  border: 1rem solid rgba(109, 108, 108, 0.603); }
-  .main.menu .main-button {
-    background-color: rgba(109, 108, 108, 0.603);
-    border: 1rem solid rgba(0, 0, 0, 0.705); }
-    .main.menu .main-button p.button-text {
-      color: #6bf0f2; }
-    .main.menu .main-button:hover {
-      background-color: rgba(55, 144, 216, 0.719); }
-      .main.menu .main-button:hover p {
-        color: rgba(24, 25, 24, 0.911); }
-    .main.menu .main-button:active {
-      margin-top: 2px;
-      margin-left: 2px; }
-
-.main.plans {
-  background: black url("/img/PlansBg.png") center scroll;
-  background-size: cover;
-  border: 1rem solid rgba(253, 107, 0, 0.97);
-  overflow: auto;
-  flex-wrap: wrap;
-  align-items: center; }
-  .main.plans .button-container {
-    width: 35vw; }
-    .main.plans .button-container .main-button {
-      background-color: rgba(158, 151, 140, 0.7); }
-      .main.plans .button-container .main-button p.button-text {
-        color: black; }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,9 +1,6 @@
 .main {
     &.menu {
-        background: black url('/img/menuBg.jpg') center scroll;
-        background-size: cover;
-        border: 1rem solid rgba(109, 108, 108, 0.603);
-        .main-button {
+        .button {
             background-color: rgba(109, 108, 108, 0.603);
             border: 1rem solid rgba(0, 0, 0, 0.705);
             p {

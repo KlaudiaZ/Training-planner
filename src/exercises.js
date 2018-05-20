@@ -92,7 +92,7 @@ export const createNewExercise = (id, name, series, reps, weight) => {
         <p>${weight}</p>
         </div>
         <div class="misc row">
-        <button class="button main-button">
+        <button class="button">
         <img src="img/plus.png">
         </button>
         </div>`));
@@ -109,10 +109,10 @@ const showExerciseForm = (name, series, reps, weight, mode, id) => {
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-reps" value="${reps}">
             <p>Weight (kg, optional)</p>
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-weight" value="${weight}">
-            <button class="button main-button" id="${mode}-exercise-form">${mode}</button>
+            <button class="button" id="${mode}-exercise-form">${mode}</button>
         </div>`));
     if (mode === "modify") {
-        $('#exercise-form-content').append($('<button class="button main-button" id="delete-exercise-form">Delete</button>'));
+        $('#exercise-form-content').append($('<button class="button" id="delete-exercise-form">Delete</button>'));
         bindModifyExerciseButton();
         bindDeleteExerciseButton();
     }
@@ -195,11 +195,11 @@ const bindSortExercisesButton = () => {
 const openSortWindow = () => {
     $('#exercises-list').append($('<div class="popup-window" id="sort-options-surrounding" data-visibility="visible">').html(`
     <div class="popup-window-content" id="sort-options">
-        <button class="button main-button sort" id="sort-default">Default</button>
-        <button class="button main-button sort" id="sort-alphabetically">A - Z</button>
-        <button class="button main-button sort" id="sort-alphabetically-reverse">Z - A</button>
-        <button class="button main-button sort" id="sort-weight">From lightest</button>
-        <button class="button main-button sort" id="sort-weight-reverse">From heaviest</button>
+        <button class="button sort" id="sort-default">Default</button>
+        <button class="button sort" id="sort-alphabetically">A - Z</button>
+        <button class="button sort" id="sort-alphabetically-reverse">Z - A</button>
+        <button class="button sort" id="sort-weight">From lightest</button>
+        <button class="button sort" id="sort-weight-reverse">From heaviest</button>
     </div>`))
     bindAreaAroundSort();
     bindSortingWindow();

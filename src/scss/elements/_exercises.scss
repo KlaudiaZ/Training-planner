@@ -1,0 +1,92 @@
+.main {
+    &.exercises {
+        justify-content: flex-start;
+        overflow: auto;
+        position: relative;
+        .exercises-menu {
+            width: 100%;
+            min-height: 7%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            background-color: #ffffe096;
+            border: 1px solid black;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            .button-container {
+                width: 20%;
+                text-align: center;
+                background-color: #fffdbf99;
+                height: auto;
+            }
+        }
+        .button {
+            background-color: transparent;
+            &:active {
+                padding-top: 2px;
+                padding-left: 2px;
+                img {
+                    margin-top: 2px;
+                    margin-left: 2px;
+                }
+            }
+        }
+        .exercise {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            width: 100%;
+            min-height: 8%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffe096;
+            border: 1px solid black;
+            font-size: 1.1rem;
+            .name {
+                width: 33%;
+                margin-left: 2%;
+                position: relative;
+                min-height: 100%;
+                padding: 17.6px 0;
+                p {
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    margin: 0;
+                    min-height: calc(100% - 35.2px);
+                }
+            }
+            .row {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+                &.series {
+                    width: 15%;
+                }
+                &.reps {
+                    width: 15%;
+                }
+                &.weight {
+                    width: 20%;
+                }
+                &.misc {
+                    width: 15%;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+#exercise-legend {
+    min-height: 3%;
+}
+
+#exercises-wrapper {
+    width: 100%;
+}

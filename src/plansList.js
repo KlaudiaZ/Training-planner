@@ -59,7 +59,7 @@ const openAddPlanWindow = (name, description, id, mode) => {
             <input type="text" class="form-input" id="form-plan-name" value=${name}>
             <p>Description</p>
             <textarea class="form-input" id="form-plan-description" value=${description}></textarea>
-            <button class="button main-button" id="${mode}-plan-form">${mode}</button>
+            <button class="button" id="${mode}-plan-form">${mode}</button>
         </div>
     `));
 }
@@ -85,7 +85,7 @@ const getPlanFormValues = () => {
 
 export const createNewPlan = (plan) => {
     $('#go-back-plans').parent().before($(`<div class="button-container">`).html(`
-        <button class="button main-button plan" name="${plan.name}" id="${plan.id}">
+        <button class="button plan" name="${plan.name}" id="${plan.id}">
             <p class="button-text">${plan.name}</p>
         </button>
     `));
