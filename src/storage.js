@@ -22,6 +22,10 @@ export const savePlanToStorage = (plan) => {
     localStorage.setItem('plans', JSON.stringify(plans));
 }
 
+export const savePlanExercisesToStorage = (plan) => {
+
+}
+
 export const importDataFromStorage = () => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
     if (exercises) {

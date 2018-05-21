@@ -38,6 +38,16 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        &.exercises-no-details {
+            justify-content: flex-start;
+            overflow-y: auto;
+            height: 60%;
+            .button {
+                height: 10%;
+                width: 80%;
+                flex-shrink: 0;
+            }
+        }
         .form-input {
             border: 1px solid black;
             width: 60%;

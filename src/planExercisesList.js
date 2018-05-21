@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 export const planExercisesListInit = () => {
     bindBackButtonOnPlanExercises();
+    bindAddButton();
 }
 
 const bindBackButtonOnPlanExercises = () => {
@@ -14,11 +15,11 @@ export const showPlanExercises = (plan) => {
     $('body').append(
         $(`<div class="main plan-details" data-visibility="visible" id="training-plan-details">`).html(
             `<div class="header">
-            <p>Plan Name</p>
+            <p>${plan.name}</p>
         </div>
         <div class="exercises-menu">
             <div class="button-container">
-                <button class="button" id="add-exercise-plan">
+                <button class="button" id="add-exercises-plan">
                     <p class="button-text">Add</p>
                 </button>
             </div>
@@ -49,4 +50,39 @@ export const showPlanExercises = (plan) => {
         </div>`
         )
     )
+}
+
+const bindAddButton = () => {
+    $('#add-exercises-plan').click((e) => {
+        openAddExercisesWindow();
+        bindAreaAroundForm();
+    });
+}
+
+const openAddExercisesWindow = () => {
+    $('#training-plan-details').append($('<div class="popup-window" id="add-content">').html(`
+        <div class="popup-window-content exercises-no-details" id="plan-exercises">
+            <button class="button">Example exercise0</button>
+        </div>
+    `))
+}
+
+const bindAreaAroundForm = () => {
+    $('#add-content').click((e) => {
+        if (e.currentTarget === e.target) {
+            hidePlanForm();
+        }
+    });
+}
+
+const hidePlanForm = () => {
+    $('#add-content').remove();
+}
+
+const showContentToAdd = () => {
+
+}
+
+const loadAddedContent = () => {
+
 }

@@ -111,6 +111,14 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center; }
+    .popup-window .popup-window-content.exercises-no-details {
+      justify-content: flex-start;
+      overflow-y: auto;
+      height: 60%; }
+      .popup-window .popup-window-content.exercises-no-details .button {
+        height: 10%;
+        width: 80%;
+        flex-shrink: 0; }
     .popup-window .popup-window-content .form-input {
       border: 1px solid black;
       width: 60%;
