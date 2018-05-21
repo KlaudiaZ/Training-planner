@@ -65,7 +65,6 @@ export const updateModifiedItem = (id, exercise) => {
 
 export const sortExercises = (mode) => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
-    console.log(mode);
     exercises.sort((a, b) => {
         switch (mode) {
             case 'sort-default':
@@ -92,5 +91,18 @@ const refreshList = (exercises) => {
     $('#exercises-wrapper').html("");
     exercises.forEach((exercise) => {
         createNewExercise(exercise.id, exercise.name, exercise.series, exercise.repetitions, exercise.weight);
+    });
+}
+
+export const loadExercisesToPick = (id) => {
+    const allExercises = JSON.parse(localStorage.getItem('exercises'));
+    const plan =
+        JSON.parse(localStorage.getItem('plans'))
+        .find(plan => plan.id === id);
+    const exercisesToLoad =
+        allExercises
+        .filter(exercise => !plan.exercises.includes(exercise.name));
+    exercisesToLoad.forEach((exercise) => {
+        $('#plan-exercises').append(`<button class="button">${exercise.name}</button>`)
     });
 }

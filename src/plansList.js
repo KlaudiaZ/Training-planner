@@ -87,7 +87,8 @@ const getPlanFormValues = () => {
     const plan = {
         id: createNewId(),
         name: $('#form-plan-name').val(),
-        description: $('#form-plan-description').val()
+        description: $('#form-plan-description').val(),
+        exercises: [],
     };
     return plan;
 }

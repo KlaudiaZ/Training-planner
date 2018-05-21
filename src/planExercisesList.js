@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { loadExercisesToPick } from './storage';
 
 export const planExercisesListInit = () => {
     bindBackButtonOnPlanExercises();
@@ -19,7 +20,7 @@ export const showPlanExercises = (plan) => {
         </div>
         <div class="exercises-menu">
             <div class="button-container">
-                <button class="button" id="add-exercises-plan">
+                <button class="button" id="add-exercises-plan" data-plan="${plan.id}">
                     <p class="button-text">Add</p>
                 </button>
             </div>
@@ -54,17 +55,20 @@ export const showPlanExercises = (plan) => {
 
 const bindAddButton = () => {
     $('#add-exercises-plan').click((e) => {
-        openAddExercisesWindow();
+        openAddExercisesWindow(e.currentTarget.dataset.plan);
         bindAreaAroundForm();
     });
 }
 
-const openAddExercisesWindow = () => {
+const openAddExercisesWindow = (id) => {
     $('#training-plan-details').append($('<div class="popup-window" id="add-content">').html(`
         <div class="popup-window-content exercises-no-details" id="plan-exercises">
-            <button class="button">Example exercise0</button>
         </div>
-    `))
+        <div class="popup-window-content>
+            <button class="button">Add selected</button>
+        </div>
+    `));
+    loadExercisesToPick(id);
 }
 
 const bindAreaAroundForm = () => {
