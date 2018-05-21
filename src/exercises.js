@@ -26,7 +26,7 @@ const bindAddButtonOnExercisesMenu = () => {
 
 const bindModifyExerciseButton = () => {
     $('#modify-exercise-form').click((e) => {
-        const exercise = getFormInputValues();
+        const exercise = getFormInputValues(e.target);
         if (validateInputs(exercise)) {
             modifyExercise(getElementID(e.target), exercise);
             hideExerciseForm();
@@ -44,8 +44,16 @@ const bindDeleteExerciseButton = () => {
 }
 
 const getElementID = (target) => {
-    const id = target.parentElement.dataset.item;
-    return id;
+    if (target) {
+        const id = target.parentElement.dataset.item;
+        if (id) {
+            return id;
+        } else {
+            return null;
+        }
+    } else {
+        return null;
+    }
 }
 
 const deleteExercise = (id) => {
@@ -69,7 +77,7 @@ const bindMiscButton = () => {
             showExerciseForm($(this).children('div')[0].textContent.trim(),
                 $(this).children('div')[1].textContent.trim(),
                 $(this).children('div')[2].textContent.trim(),
-                parseInt($(this).children('div')[3].textContent.trim()),
+                parseFloat($(this).children('div')[3].textContent.trim()),
                 "modify",
                 $(event.currentTarget)[0].id
             );
@@ -144,9 +152,9 @@ const addExercise = () => {
 
 }
 
-const getFormInputValues = (id, name, series, repetitions, weight) => {
+const getFormInputValues = (target) => {
     const exercise = {
-        id: createNewId(),
+        id: getElementID(target) ? getElementID(target) : createNewId(),
         name: $('#exercise-name').val(),
         series: $('#exercise-series').val(),
         repetitions: $('#exercise-reps').val(),
@@ -181,8 +189,8 @@ const saveExercise = (validation, exercise) => {
 
 export const addSuffixToWeightField = (val, exercise) => {
     val.trim() === "" ?
-        exercise.weight = "N/A" :
-        exercise.weight += "kg";
+        exercise.weight = "0 kg" :
+        exercise.weight += " kg";
     return exercise;
 }
 

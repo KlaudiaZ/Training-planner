@@ -1,5 +1,6 @@
 .button {
     box-sizing: border-box;
+    background-color: transparent;
     width: 100%;
     height: 100%;
     padding: 0;
@@ -8,20 +9,26 @@
     border: none;
 }
 
+.exercise-legend {
+    min-height: 3%;
+}
+
 .popup-window {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     z-index: 2000;
-    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
+    height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
     .popup-window-content {
         background-color: #fefefe;
-        margin: auto;
         padding: 20px;
         border: 1px solid #888;
         width: 80%;
@@ -42,17 +49,17 @@
             flex-direction: column;
             align-items: center;
         }
-        .sort {
-            border: 1px solid black;
-            width: 50%;
-            height: 3rem;
-            font-size: 1.5rem;
-        }
         .button {
             border: 1px solid black;
-            width: 20%;
+            width: 50%;
             font-size: 1.5rem;
             margin-top: 20px;
+        }
+        .sort {
+            border: 1px solid black;
+            width: 75%;
+            height: 3rem;
+            font-size: 1.5rem;
         }
         p {
             margin: 0px;

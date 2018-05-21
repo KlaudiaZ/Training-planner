@@ -1,5 +1,4 @@
 import './css/index.css';
-import './css/other.css';
 import $ from 'jquery';
 import { mainMenuInit } from './mainMenu';
 import { plansListInit } from './plansList';

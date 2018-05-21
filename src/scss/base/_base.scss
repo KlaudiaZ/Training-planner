@@ -9,7 +9,7 @@
 html,
 body {
     font-family: 'signikaregular';
-    box-sizing: content-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     [data-visibility="invisible"] {
@@ -38,10 +38,21 @@ body {
 }
 
 .main {
-    background: black url('/img/background.jpg') center scroll;
+    background: black url('/img/background_small.jpg') center scroll;
+    @media screen and (min-width: 768px) {
+        background: black url('/img/background_medium.jpg') center scroll;
+    }
+    @media screen and (min-width: 1368px) {
+        background: black url('/img/background_large.jpg') center scroll;
+    }
+    @media screen and (min-width: 1920px) {
+        background: black url('/img/background_extra_large.jpg') center scroll;
+    }
     background-size: cover;
-    border: 1rem solid rgba(109, 108, 108, 0.603);
-    box-sizing: border-box;
+    border: 1rem solid rgba(109,
+    108,
+    108,
+    0.603);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

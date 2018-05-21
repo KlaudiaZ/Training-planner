@@ -12,7 +12,7 @@
 
 <body>
     <!-- MAIN MENU -->
-    <div class="main menu" data-visibility="invisible" id="main-menu">
+    <div class="main menu" data-visibility="visible" id="main-menu">
         <div class="button-container top">
             <button class="button" name="training-plans" id="training-plans-button">
                 <p class="button-text">Training Plans</p>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <!-- TRAINING PLANS -->
-    <div class="main plans" data-visibility="visible" id="training-plans-menu">
+    <div class="main plans" data-visibility="invisible" id="training-plans-menu">
         <div class="button-container">
             <button class="button" name="add-plan" id="add-plan">
                 <p class="button-text">Add plan</p>
@@ -40,6 +40,43 @@
 
         </div>
     </div>
+    <!-- PLAN EXERCISE LIST -->
+    <!-- <div class="main plan-details" data-visibility="visible" id="training-plan-details">
+        <div class="header">
+            <p>Plan Name</p>
+        </div>
+        <div class="exercises-menu">
+            <div class="button-container">
+                <button class="button" id="add-exercise-plan">
+                    <p class="button-text">Add</p>
+                </button>
+            </div>
+            <div class="button-container">
+                <button class="button" id="go-back-exercises-plan">
+                    <p class="button-text">Back</p>
+                </button>
+            </div>
+        </div>
+        <div class="exercise exercise-legend">
+            <div class="name row">
+                <p>Name</p>
+            </div>
+            <div class="series row">
+                <p>Series</p>
+            </div>
+            <div class="reps row">
+                <p>Reps</p>
+            </div>
+            <div class="weight row">
+                <p>Weight</p>
+            </div>
+            <div class="misc row">
+                <p>Misc</p>
+            </div>
+        </div>
+        <div id="plan-exercises-wrapper">
+        </div>
+    </div> -->
     <!-- EXERCISE LIST -->
     <div class="main exercises" data-visibility="invisible" id="exercises-list">
         <div class="exercises-menu">
@@ -59,7 +96,7 @@
                 </button>
             </div>
         </div>
-        <div class="exercise" id="exercise-legend">
+        <div class="exercise exercise-legend">
             <div class="name row">
                 <p>Name</p>
             </div>
@@ -77,7 +114,6 @@
             </div>
         </div>
         <div id="exercises-wrapper">
-
         </div>
     </div>
 </body>

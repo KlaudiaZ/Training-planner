@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { createNewId } from './idGenerator';
 import { savePlanToStorage } from './storage';
+import { planExercisesListInit, showPlanExercises } from './planExercisesList';
 
 // add input validation
 // edit plan on hold
@@ -9,7 +10,8 @@ import { savePlanToStorage } from './storage';
 export const plansListInit = () => {
     bindBackButtonOnPlans();
     bindAddNewPlan();
-    bindAddNewPlanOnHold();
+    bindPlanClick();
+    //bindAddNewPlanOnHold();
 }
 
 const bindBackButtonOnPlans = () => {
@@ -25,17 +27,17 @@ const bindAddNewPlan = () => {
     });
 }
 
-const bindAddNewPlanOnHold = () => {
-    $('.plan').mousedown((e) => {
-        const interval = setInterval(() => {
-                console.log("you're choking me bro!")
-            },
-            500);
-    });
-    $('.plan').mouseup((e) => {
-        clearInterval(interval);
-    });
-}
+// const bindPlanOnHold = () => {
+//     $('.plan').mousedown((e) => {
+//         const interval = setInterval(() => {
+//                 console.log("you're choking me bro!")
+//             },
+//             500);
+//     });
+//     $('.plan').mouseup((e) => {
+//         clearInterval(interval);
+//     });
+// }
 
 const bindAreaAroundPlanForm = () => {
     $('#create-new-plan').click((e) => {
@@ -49,6 +51,13 @@ const bindAddPlanButtonOnForm = () => {
     $('#add-plan-form').click((e) => {
         addPlan();
         hidePlanForm();
+    });
+}
+
+const bindPlanClick = () => {
+    $('.plan').click((e) => {
+        showPlanExercises(e.target);
+        planExercisesListInit();
     });
 }
 
