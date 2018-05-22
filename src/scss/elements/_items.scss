@@ -46,7 +46,15 @@
                 height: 10%;
                 width: 80%;
                 flex-shrink: 0;
+                &.selected {
+                    background-color: aqua;
+                }
             }
+        }
+        &.add {
+            min-height: 5vh;
+            height: 10vh;
+            padding: 0;
         }
         .form-input {
             border: 1px solid black;

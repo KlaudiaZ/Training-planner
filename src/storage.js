@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { addSuffixToWeightField, createNewExercise } from './exercises';
 import { createNewPlan } from './plansList';
+import { showContentToAdd, manageLoadedContent } from './planExercisesList';
 
 // preserve ID of a modified item
 
@@ -99,10 +100,33 @@ export const loadExercisesToPick = (id) => {
     const plan =
         JSON.parse(localStorage.getItem('plans'))
         .find(plan => plan.id === id);
-    const exercisesToLoad =
-        allExercises
-        .filter(exercise => !plan.exercises.includes(exercise.name));
-    exercisesToLoad.forEach((exercise) => {
-        $('#plan-exercises').append(`<button class="button">${exercise.name}</button>`)
+    const exercisesToAdd =
+        allExercises.filter((exercise) => {
+            return !plan.exercises.includes(exercise.id)
+        });
+    showContentToAdd(exercisesToAdd);
+}
+
+export const updatePlanExercises = (selectedExercises, id) => {
+    const plans = JSON.parse(localStorage.getItem('plans'));
+    plans.find((plan) => {
+        if (plan.id === id) {
+            selectedExercises.forEach((exercise) => {
+                plan.exercises.push(exercise);
+            });
+        }
     });
+    localStorage.setItem('plans', JSON.stringify(plans));
+}
+
+export const loadAddedContent = (id) => {
+    const allExercises = JSON.parse(localStorage.getItem('exercises'));
+    const plan =
+        JSON.parse(localStorage.getItem('plans'))
+        .find(plan => plan.id === id);
+    const exercisesToLoad =
+        allExercises.filter((exercise) => {
+            return plan.exercises.includes(exercise.id)
+        });
+    manageLoadedContent(exercisesToLoad);
 }

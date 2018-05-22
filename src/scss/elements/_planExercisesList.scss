@@ -6,6 +6,9 @@
             width: 100%;
             background-color: #ffffe096;
             border: 1px solid black;
+            &.description {
+                font-size: 1rem;
+            }
         }
         .exercises-menu {
             width: 100%;
@@ -81,4 +84,10 @@
 
 #plan-exercises-wrapper {
     width: 100%;
+}
+
+#add-selected-exercises {
+    background-color: white;
+    height: 5vh;
+    margin: 0;
 }

@@ -57,7 +57,7 @@ const bindAddPlanButtonOnForm = () => {
 const bindPlanClick = () => {
     $('.plan').click((e) => {
         showPlanExercises(e.currentTarget);
-        planExercisesListInit();
+        planExercisesListInit(e.currentTarget.id);
     });
 }
 

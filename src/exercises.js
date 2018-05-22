@@ -88,36 +88,36 @@ const bindMiscButton = () => {
 export const createNewExercise = (id, name, series, reps, weight) => {
     $('#exercises-wrapper').append($(`<div class="exercise" id="${id}">`)
         .html(`<div class="name row">
-        <p>${name}</p>
-        </div>
-        <div class="series row">
-        <p>${series}</p>
-        </div>
-        <div class="reps row">
-        <p>${reps}</p>
-        </div>
-        <div class="weight row">
-        <p>${weight}</p>
-        </div>
-        <div class="misc row">
-        <button class="button">
-        <img src="img/plus.png">
-        </button>
-        </div>`));
+                <p>${name}</p>
+            </div>
+            <div class="series row">
+                <p>${series}</p>
+            </div>
+            <div class="reps row">
+                <p>${reps}</p>
+            </div>
+            <div class="weight row">
+                <p>${weight}</p>
+            </div>
+            <div class="misc row">
+                <button class="button">
+                    <img src="img/plus.png">
+                </button>
+            </div>`));
 }
 
 const showExerciseForm = (name, series, reps, weight, mode, id) => {
     $('#exercises-list').append($('<div class="popup-window" id="new-exercise-form" data-visibility="visible">').html(`
-            <div class="popup-window-content" id="exercise-form-content" data-item="${id}">
-            <p>Exercise name</p>
+        <div class="popup-window-content" id="exercise-form-content" data-item="${id}">
+                <p>Exercise name</p>
             <input class="form-input" type="text" id="exercise-name" value="${name}">
-            <p>Number of series</p>
+                <p>Number of series</p>
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-series" value="${series}">
-            <p>Number of repetitions</p>
+                <p>Number of repetitions</p>
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-reps" value="${reps}">
-            <p>Weight (kg, optional)</p>
+                <p>Weight (kg, optional)</p>
             <input class="form-input" type="number" pattern="[0-9]" id="exercise-weight" value="${weight}">
-            <button class="button" id="${mode}-exercise-form">${mode}</button>
+                <button class="button" id="${mode}-exercise-form">${mode}</button>
         </div>`));
     if (mode === "modify") {
         $('#exercise-form-content').append($('<button class="button" id="delete-exercise-form">Delete</button>'));

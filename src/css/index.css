@@ -119,6 +119,12 @@ body {
         height: 10%;
         width: 80%;
         flex-shrink: 0; }
+        .popup-window .popup-window-content.exercises-no-details .button.selected {
+          background-color: aqua; }
+    .popup-window .popup-window-content.add {
+      min-height: 5vh;
+      height: 10vh;
+      padding: 0; }
     .popup-window .popup-window-content .form-input {
       border: 1px solid black;
       width: 60%;
@@ -266,6 +272,8 @@ body {
     width: 100%;
     background-color: #ffffe096;
     border: 1px solid black; }
+    .main.plan-details .header.description {
+      font-size: 1rem; }
   .main.plan-details .exercises-menu {
     width: 100%;
     min-height: 7%;
@@ -325,5 +333,10 @@ body {
 
 #plan-exercises-wrapper {
   width: 100%; }
+
+#add-selected-exercises {
+  background-color: white;
+  height: 5vh;
+  margin: 0; }
 
 /*# sourceMappingURL=index.css.map */
