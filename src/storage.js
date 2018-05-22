@@ -93,11 +93,16 @@ const refreshList = (exercises) => {
     });
 }
 
-export const loadExercisesToPick = (id) => {
-    const allExercises = JSON.parse(localStorage.getItem('exercises'));
+export const findPlan = (id) => {
     const plan =
         JSON.parse(localStorage.getItem('plans'))
         .find(plan => plan.id === id);
+    return plan;
+}
+
+export const loadExercisesToPick = (id) => {
+    const allExercises = JSON.parse(localStorage.getItem('exercises'));
+    const plan = findPlan(id);
     const exercisesToAdd =
         allExercises.filter((exercise) => {
             return !plan.exercises.includes(exercise.id)
@@ -128,9 +133,7 @@ export const updatePlanExercises = (selected, id, mode) => {
 
 export const loadAddedContent = (id) => {
     const allExercises = JSON.parse(localStorage.getItem('exercises'));
-    const plan =
-        JSON.parse(localStorage.getItem('plans'))
-        .find(plan => plan.id === id);
+    const plan = findPlan(id);
     const exercisesToLoad =
         allExercises.filter((exercise) => {
             return plan.exercises.includes(exercise.id)

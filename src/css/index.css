@@ -82,6 +82,18 @@ body {
   margin: 0;
   text-transform: capitalize;
   border: none; }
+  .button.navigation {
+    background-color: rgba(109, 108, 108, 0.603) !important;
+    border: 0.75rem solid rgba(0, 0, 0, 0.705) !important; }
+    .button.navigation p.button-text {
+      color: #6bf0f2 !important; }
+    .button.navigation:hover {
+      background-color: rgba(55, 144, 216, 0.719) !important; }
+      .button.navigation:hover p {
+        color: rgba(24, 25, 24, 0.911) !important; }
+    .button.navigation:active {
+      margin-top: 2px !important;
+      margin-left: 2px !important; }
 
 .exercise-legend {
   min-height: 3%; }
@@ -171,7 +183,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #ffffe096;
+    background-color: #ffffffcc;
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
@@ -198,7 +210,7 @@ body {
     position: relative;
     margin: 0;
     padding: 0;
-    background-color: #ffffe096;
+    background-color: #ffffffcc;
     border: 1px solid black;
     font-size: 1.1rem; }
     .main.exercises .exercise .row {
@@ -225,19 +237,6 @@ body {
 #exercises-wrapper {
   width: 100%; }
 
-.main.menu .button {
-  background-color: rgba(109, 108, 108, 0.603);
-  border: 1rem solid rgba(0, 0, 0, 0.705); }
-  .main.menu .button p.button-text {
-    color: #6bf0f2; }
-  .main.menu .button:hover {
-    background-color: rgba(55, 144, 216, 0.719); }
-    .main.menu .button:hover p {
-      color: rgba(24, 25, 24, 0.911); }
-  .main.menu .button:active {
-    margin-top: 2px;
-    margin-left: 2px; }
-
 .main.plans {
   overflow: auto;
   flex-wrap: wrap;
@@ -245,7 +244,7 @@ body {
   .main.plans .button-container {
     width: 35vw; }
     .main.plans .button-container .button {
-      background-color: rgba(158, 151, 140, 0.7); }
+      background-color: rgba(175, 168, 158, 0.788); }
       .main.plans .button-container .button p.button-text {
         color: black; }
       .main.plans .button-container .button:hover {
@@ -270,7 +269,7 @@ body {
   overflow: auto; }
   .main.plan-details .header {
     width: 100%;
-    background-color: #ffffe096;
+    background-color: #ffffffcc;
     border: 1px solid black; }
     .main.plan-details .header.description {
       font-size: 1rem; }
@@ -280,7 +279,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #ffffe096;
+    background-color: #ffffffcc;
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
@@ -307,7 +306,7 @@ body {
     position: relative;
     margin: 0;
     padding: 0;
-    background-color: #ffffe096;
+    background-color: #ffffffcc;
     border: 1px solid black;
     font-size: 1.1rem; }
     .main.plan-details .exercise .row {

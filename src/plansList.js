@@ -1,17 +1,14 @@
 import $ from 'jquery';
 import { createNewId } from './idGenerator';
-import { savePlanToStorage } from './storage';
+import { savePlanToStorage, findPlan } from './storage';
 import { planExercisesListInit, showPlanExercises } from './planExercisesList';
 
 // add input validation
-// edit plan on hold
-// clicking on a plan shows exercises it contains
 
 export const plansListInit = () => {
     bindBackButtonOnPlans();
     bindAddNewPlan();
     bindPlanClick();
-    //bindAddNewPlanOnHold();
 }
 
 const bindBackButtonOnPlans = () => {
@@ -26,18 +23,6 @@ const bindAddNewPlan = () => {
         setPlanNumberLimit();
     });
 }
-
-// const bindPlanOnHold = () => {
-//     $('.plan').mousedown((e) => {
-//         const interval = setInterval(() => {
-//                 console.log("you're choking me bro!")
-//             },
-//             500);
-//     });
-//     $('.plan').mouseup((e) => {
-//         clearInterval(interval);
-//     });
-// }
 
 const bindAreaAroundPlanForm = () => {
     $('#create-new-plan').click((e) => {
@@ -56,8 +41,8 @@ const bindAddPlanButtonOnForm = () => {
 
 const bindPlanClick = () => {
     $('.plan').click((e) => {
-        showPlanExercises(e.currentTarget);
-        planExercisesListInit(e.currentTarget.id);
+        showPlanExercises(findPlan(e.currentTarget.id));
+        planExercisesListInit(findPlan(e.currentTarget.id));
     });
 }
 
@@ -118,8 +103,4 @@ const setPlanNumberLimit = () => {
     } else {
         showPlanPropertiesWindow();
     }
-}
-
-const editPlanProperties = () => {
-
 }

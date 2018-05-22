@@ -7,6 +7,25 @@
     margin: 0;
     text-transform: capitalize;
     border: none;
+    &.navigation {
+        background-color: rgba(109, 108, 108, 0.603)!important;
+        border: 0.75rem solid rgba(0, 0, 0, 0.705)!important;
+        p {
+            &.button-text {
+                color: rgb(107, 240, 242)!important;
+            }
+        }
+        &:hover {
+            background-color: rgba(55, 144, 216, 0.719)!important;
+            p {
+                color: rgba(24, 25, 24, 0.911)!important;
+            }
+        }
+        &:active {
+            margin-top: 2px!important;
+            margin-left: 2px!important;
+        }
+    }
 }
 
 .exercise-legend {

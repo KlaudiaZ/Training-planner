@@ -1,10 +1,12 @@
 import $ from 'jquery';
 import { loadExercisesToPick, updatePlanExercises, loadAddedContent } from './storage';
+import { openAddPlanWindow } from './plansList';
 
-export const planExercisesListInit = (id) => {
+export const planExercisesListInit = (plan) => {
     bindBackButtonOnPlanExercises();
     bindAddButton();
-    loadAddedContent(id);
+    loadAddedContent(plan.id);
+    bindEditPlanButton(plan);
 }
 
 const bindBackButtonOnPlanExercises = () => {
@@ -20,18 +22,23 @@ export const showPlanExercises = (plan) => {
             <p>${plan.name}</p>
         </div>
         <div class="header description">
-            <p>Plan's description should be here but...you know. However, this way I can use this hard-coded text to test what's gonna happen when somebody puts a huge description in here.
-                Well, actually, nothing bad happens at all. Let's be thankful for the small mercies.
+            <p>
+                ${plan.description}
             </p>
         </div>
         <div class="exercises-menu">
             <div class="button-container">
-                <button class="button" id="add-exercises-plan" data-plan="${plan.id}">
-                    <p class="button-text">Add</p>
+                <button class="button navigation" id="add-exercises-plan" data-plan="${plan.id}">
+                    <p class="button-text">Add exercises</p>
                 </button>
             </div>
             <div class="button-container">
-                <button class="button" id="go-back-exercises-plan">
+                <button class="button navigation" id="edit-plan" data-plan="${plan.id}">
+                    <p class="button-text">Edit plan</p>
+                </button>
+            </div>
+            <div class="button-container">
+                <button class="button navigation" id="go-back-exercises-plan">
                     <p class="button-text">Back</p>
                 </button>
             </div>
@@ -165,4 +172,22 @@ const bindExerciseDeleteButton = (plan) => {
             this.remove();
         }
     });
+}
+
+const bindEditPlanButton = (plan) => {
+    $('#edit-plan').click((e) => {
+
+    });
+}
+
+const openEditPlanWindow = (name, description, id, mode) => {
+    $('#training-plans-menu').append($('<div class="popup-window" id="create-new-plan">').html(`
+        <div class="popup-window-content" id="new-plan-content" data-item="${id}">
+            <p>Plan name</p>
+            <input type="text" class="form-input" id="form-plan-name" value=${name}>
+            <p>Description</p>
+            <textarea class="form-input" id="form-plan-description" value=${description}></textarea>
+            <button class="button" id="${mode}-plan-form">${mode}</button>
+        </div>
+    `));
 }
