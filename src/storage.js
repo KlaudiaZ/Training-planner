@@ -3,8 +3,6 @@ import { addSuffixToWeightField, createNewExercise } from './exercises';
 import { createNewPlan } from './plansList';
 import { showContentToAdd, manageLoadedContent } from './planExercisesList';
 
-// preserve ID of a modified item
-
 export const saveExerciseToStorage = (exercise) => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
     if (!exercises) {
@@ -107,13 +105,22 @@ export const loadExercisesToPick = (id) => {
     showContentToAdd(exercisesToAdd);
 }
 
-export const updatePlanExercises = (selectedExercises, id) => {
+export const updatePlanExercises = (selected, id, mode) => {
     const plans = JSON.parse(localStorage.getItem('plans'));
     plans.find((plan) => {
         if (plan.id === id) {
-            selectedExercises.forEach((exercise) => {
-                plan.exercises.push(exercise);
-            });
+            switch (mode) {
+                case 'add':
+                    selected.forEach((exercise) => {
+                        plan.exercises.push(exercise);
+                    });
+                    break;
+                case 'delete':
+                    const index = plan.exercises.indexOf(selected);
+                    plan.exercises.splice(index, 1);
+                    console.log(plan);
+                    break;
+            }
         }
     });
     localStorage.setItem('plans', JSON.stringify(plans));
@@ -128,5 +135,5 @@ export const loadAddedContent = (id) => {
         allExercises.filter((exercise) => {
             return plan.exercises.includes(exercise.id)
         });
-    manageLoadedContent(exercisesToLoad);
+    manageLoadedContent(exercisesToLoad, id);
 }

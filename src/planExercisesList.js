@@ -125,15 +125,16 @@ const toggleExerciseSelect = (arr, id) => {
 
 const bindAddSelectedButton = (selectedExercises) => {
     $('#add-selected-exercises').click((e) => {
-        updatePlanExercises(selectedExercises, e.currentTarget.dataset.id);
+        updatePlanExercises(selectedExercises, e.currentTarget.dataset.id, "add");
         hidePlanForm();
     });
 }
 
-export const manageLoadedContent = (content) => {
+export const manageLoadedContent = (content, plan) => {
     content.forEach((item) => {
         showAddedContent(item.id, item.name, item.series, item.repetitions, item.weight);
     });
+    bindExerciseDeleteButton(plan);
 }
 
 const showAddedContent = (id, name, series, reps, weight) => {
@@ -152,7 +153,16 @@ const showAddedContent = (id, name, series, reps, weight) => {
             </div>
             <div class="misc row">
                 <button class="button">
-                    <img src="img/plus.png">
+                    <img src="img/delete.png">
                 </button>
             </div>`));
+}
+
+const bindExerciseDeleteButton = (plan) => {
+    $('.exercise').click(function() {
+        if (event.target.nodeName === "IMG") {
+            updatePlanExercises(this.id, plan, "delete");
+            this.remove();
+        }
+    });
 }
