@@ -10,6 +10,21 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0; }
+  @media screen and (min-width: 768px) {
+    *,
+    html,
+    body {
+      font-size: 1.1rem; } }
+  @media screen and (min-width: 1368px) {
+    *,
+    html,
+    body {
+      font-size: 1.3rem; } }
+  @media screen and (min-width: 1920px) {
+    *,
+    html,
+    body {
+      font-size: 1.5rem; } }
   * [data-visibility="invisible"],
   html [data-visibility="invisible"],
   body [data-visibility="invisible"] {
@@ -49,8 +64,7 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-position: center;
-  font-size: 1.5rem; }
+  background-position: center; }
   @media screen and (min-width: 768px) {
     .main {
       background: black url("/img/background_medium.jpg") center scroll; } }
@@ -69,7 +83,6 @@ body {
 
 .button-text {
   margin: auto;
-  font-size: 1.5rem;
   width: 100%;
   vertical-align: middle; }
 
@@ -81,19 +94,20 @@ body {
   padding: 0;
   margin: 0;
   text-transform: capitalize;
-  border: none; }
+  border: none;
+  position: relative;
+  overflow: visible; }
   .button.navigation {
-    background-color: rgba(109, 108, 108, 0.603) !important;
+    background-color: rgba(219, 217, 217, 0.603) !important;
     border: 0.75rem solid rgba(0, 0, 0, 0.705) !important; }
     .button.navigation p.button-text {
-      color: #6bf0f2 !important; }
+      color: #050611 !important; }
     .button.navigation:hover {
       background-color: rgba(55, 144, 216, 0.719) !important; }
       .button.navigation:hover p {
         color: rgba(24, 25, 24, 0.911) !important; }
     .button.navigation:active {
-      margin-top: 2px !important;
-      margin-left: 2px !important; }
+      transform: translate(2px, 2px); }
 
 .exercise-legend {
   min-height: 3%; }
@@ -140,7 +154,6 @@ body {
     .popup-window .popup-window-content .form-input {
       border: 1px solid black;
       width: 60%;
-      font-size: 1.5rem;
       margin: 0px;
       flex-grow: 1;
       display: flex;
@@ -151,13 +164,11 @@ body {
     .popup-window .popup-window-content .button {
       border: 1px solid black;
       width: 50%;
-      font-size: 1.5rem;
       margin-top: 20px; }
     .popup-window .popup-window-content .sort {
       border: 1px solid black;
       width: 75%;
-      height: 3rem;
-      font-size: 1.5rem; }
+      height: 3rem; }
     .popup-window .popup-window-content p {
       margin: 0px;
       flex-grow: 1;
@@ -166,7 +177,7 @@ body {
       flex-direction: column;
       align-items: center; }
 
-.alert {
+.alert, .main.menu .about {
   position: fixed;
   top: 40%;
   right: 30%;
@@ -180,7 +191,7 @@ body {
   align-content: center;
   align-items: center;
   padding: 1%; }
-  .alert .button {
+  .alert .button, .main.menu .about .button {
     width: 10vw;
     align-self: center; }
 
@@ -189,11 +200,11 @@ body {
   overflow: auto; }
   .main.exercises .exercises-menu {
     width: 100%;
-    min-height: 7%;
+    min-height: 75px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #ffffffcc;
+    background-color: #fde2b6cc;
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
@@ -203,12 +214,14 @@ body {
       text-align: center;
       background-color: #fffdbf99;
       height: auto; }
-  .main.exercises .button:active {
-    padding-top: 2px;
-    padding-left: 2px; }
-    .main.exercises .button:active img {
-      margin-top: 2px;
-      margin-left: 2px; }
+  .main.exercises .button {
+    height: 75px; }
+    .main.exercises .button:active {
+      padding-top: 2px;
+      padding-left: 2px; }
+      .main.exercises .button:active img {
+        margin-top: 2px;
+        margin-left: 2px; }
   .main.exercises .exercise {
     box-sizing: border-box;
     display: flex;
@@ -216,13 +229,15 @@ body {
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
-    min-height: 8%;
+    min-height: 10%;
     position: relative;
     margin: 0;
     padding: 0;
     background-color: #ffffffcc;
     border: 1px solid black;
     font-size: 1.1rem; }
+    .main.exercises .exercise.exercise-legend {
+      background-color: #fde2b6cc; }
     .main.exercises .exercise .row {
       display: flex;
       flex-flow: column nowrap;
@@ -231,7 +246,8 @@ body {
       margin-left: 2%;
       position: relative;
       min-height: 100%;
-      padding: 17.6px 0; }
+      height: 50px;
+      padding: 1% 0; }
       .main.exercises .exercise .row.name {
         width: 33%; }
       .main.exercises .exercise .row.series {
@@ -246,6 +262,24 @@ body {
 
 #exercises-wrapper {
   width: 100%; }
+
+.main.menu .about {
+  top: 10%;
+  right: 25%;
+  bottom: 10%;
+  left: 25%;
+  justify-content: flex-start;
+  padding: 20px; }
+  .main.menu .about .content {
+    overflow-y: auto;
+    width: 100%;
+    height: calc(100% - 70px); }
+  .main.menu .about .button {
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    bottom: 20px; }
 
 .main.plans {
   overflow: auto;
@@ -272,24 +306,24 @@ body {
   flex-grow: 0;
   height: 25vh;
   margin-bottom: 20px;
-  font-size: 1.5rem; }
+  font-size: 1.3rem; }
 
 .main.plan-details {
   justify-content: flex-start;
   overflow: auto; }
   .main.plan-details .header {
     width: 100%;
-    background-color: #ffffffcc;
+    background-color: #fde2b6cc;
     border: 1px solid black; }
     .main.plan-details .header.description {
-      font-size: 1rem; }
+      font-size: 0.8rem !important; }
   .main.plan-details .exercises-menu {
     width: 100%;
-    min-height: 7%;
+    min-height: 75px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #ffffffcc;
+    background-color: #fde2b6cc;
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
@@ -299,12 +333,14 @@ body {
       text-align: center;
       background-color: #fffdbf99;
       height: auto; }
-  .main.plan-details .button:active {
-    padding-top: 2px;
-    padding-left: 2px; }
-    .main.plan-details .button:active img {
-      margin-top: 2px;
-      margin-left: 2px; }
+  .main.plan-details .button {
+    height: 75px; }
+    .main.plan-details .button:active {
+      padding-top: 2px;
+      padding-left: 2px; }
+      .main.plan-details .button:active img {
+        margin-top: 2px;
+        margin-left: 2px; }
   .main.plan-details .exercise {
     box-sizing: border-box;
     display: flex;
@@ -312,13 +348,15 @@ body {
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
-    min-height: 8%;
+    min-height: 10%;
     position: relative;
     margin: 0;
     padding: 0;
     background-color: #ffffffcc;
     border: 1px solid black;
     font-size: 1.1rem; }
+    .main.plan-details .exercise.exercise-legend {
+      background-color: #fde2b6cc; }
     .main.plan-details .exercise .row {
       display: flex;
       flex-flow: column nowrap;
@@ -327,7 +365,8 @@ body {
       margin-left: 2%;
       position: relative;
       min-height: 100%;
-      padding: 17.6px 0; }
+      height: 50px;
+      padding: 1% 0; }
       .main.plan-details .exercise .row.name {
         width: 33%; }
       .main.plan-details .exercise .row.series {

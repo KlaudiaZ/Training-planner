@@ -8,6 +8,15 @@
 *,
 html,
 body {
+    @media screen and (min-width: 768px) {
+        font-size: $font-size-small;
+    }
+    @media screen and (min-width: 1368px) {
+        font-size: $font-size-regular;
+    }
+    @media screen and (min-width: 1920px) {
+        font-size: $font-size-large;
+    }
     font-family: 'signikaregular';
     box-sizing: border-box;
     margin: 0;
@@ -61,7 +70,7 @@ body {
     height: 100vh;
     width: 100vw;
     background-position: center;
-    font-size: 1.5rem;
+    // font-size: $font-size-regular;
 }
 
 .button-container {
@@ -73,7 +82,7 @@ body {
 
 .button-text {
     margin: auto;
-    font-size: 1.5rem;
+    //font-size: $font-size-regular;
     width: 100%;
     vertical-align: middle;
 }

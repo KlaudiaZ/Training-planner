@@ -7,12 +7,14 @@
     margin: 0;
     text-transform: capitalize;
     border: none;
+    position: relative;
+    overflow: visible;
     &.navigation {
-        background-color: rgba(109, 108, 108, 0.603)!important;
+        background-color: rgba(219, 217, 217, 0.603)!important;
         border: 0.75rem solid rgba(0, 0, 0, 0.705)!important;
         p {
             &.button-text {
-                color: rgb(107, 240, 242)!important;
+                color: rgb(5, 6, 17)!important;
             }
         }
         &:hover {
@@ -22,8 +24,7 @@
             }
         }
         &:active {
-            margin-top: 2px!important;
-            margin-left: 2px!important;
+            transform: translate(2px, 2px);
         }
     }
 }
@@ -78,7 +79,7 @@
         .form-input {
             border: 1px solid black;
             width: 60%;
-            font-size: 1.5rem;
+            //font-size: $font-size-regular;
             margin: 0px;
             flex-grow: 1;
             display: flex;
@@ -90,14 +91,14 @@
         .button {
             border: 1px solid black;
             width: 50%;
-            font-size: 1.5rem;
+            //font-size: $font-size-regular;
             margin-top: 20px;
         }
         .sort {
             border: 1px solid black;
             width: 75%;
             height: 3rem;
-            font-size: 1.5rem;
+            //font-size: $font-size-regular;
         }
         p {
             margin: 0px;

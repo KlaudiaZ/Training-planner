@@ -109,7 +109,7 @@ export const loadExercisesToPick = (id) => {
 
 export const updatePlanExercises = (selected, id, mode) => {
     const plans = JSON.parse(localStorage.getItem('plans'));
-    plans.find((plan) => {
+    plans.forEach((plan) => {
         if (plan.id === id) {
             switch (mode) {
                 case 'add':

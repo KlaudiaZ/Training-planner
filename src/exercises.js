@@ -13,8 +13,6 @@ export const exercisesInit = () => {
     });
 }
 
-
-
 const bindAddButtonOnExercisesMenu = () => {
     $('#add-exercise-main').click((e) => {
         showExerciseForm("", "", "", "", "add");
@@ -238,13 +236,11 @@ const bindSortingWindow = () => {
 
 const bindOkOnAlert = () => {
     $('.validation-error').click((e) => {
-        console.log('bye')
         removeAlert();
     });
 }
 
 const removeAlert = () => {
-    console.log('bye')
     $('.alert').parent().remove();
     $('.alert').remove();
 }

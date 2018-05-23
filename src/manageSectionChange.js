@@ -18,9 +18,23 @@ export const loadMainMenu = () => {
                     <p class="button-text">Exercises</p>
                 </button>
             </div>
+            <div class="button-container bottom">
+                <button class="button navigation" name="about" id="show-about">
+                    <p class="button-text">About</p>
+                </button>
+            </div>
         </div>
     `);
     mainMenuInit();
+}
+
+export const showAbout = (content) => {
+    $('.main').append($(`<div class="popup-window" id="about">`).html(`
+            <div class="about">
+                <div class="content">${content}</div>
+                <button class="button navigation" id="close-about">Close</button>
+            </div>
+        `));
 }
 
 export const loadPlansList = () => {

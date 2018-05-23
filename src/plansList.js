@@ -6,8 +6,6 @@ import { savePlanToStorage, findPlan, updatePlanProperties } from './storage';
 import { planExercisesListInit, showPlanExercises } from './planExercisesList';
 import { displayAlert } from './manageSectionChange';
 
-// add input validation
-
 export const plansListInit = () => {
     $(() => {
         bindBackButtonOnPlans();

@@ -4,11 +4,11 @@
         overflow: auto;
         .exercises-menu {
             width: 100%;
-            min-height: 7%;
+            min-height: 75px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
-            background-color: #ffffffcc;
+            background-color: #fde2b6cc;
             border: 1px solid black;
             box-sizing: border-box;
             margin: 0;
@@ -21,6 +21,7 @@
             }
         }
         .button {
+            height: 75px;
             &:active {
                 padding-top: 2px;
                 padding-left: 2px;
@@ -37,13 +38,16 @@
             justify-content: flex-start;
             align-items: stretch;
             width: 100%;
-            min-height: 8%;
+            min-height: 10%;
             position: relative;
             margin: 0;
             padding: 0;
             background-color: #ffffffcc;
             border: 1px solid black;
             font-size: 1.1rem;
+            &.exercise-legend {
+                background-color: #fde2b6cc;
+            }
             .row {
                 display: flex;
                 flex-flow: column nowrap;
@@ -52,7 +56,8 @@
                 margin-left: 2%;
                 position: relative;
                 min-height: 100%;
-                padding: 17.6px 0;
+                height: 50px;
+                padding: 1% 0;
                 &.name {
                     width: 33%;
                 }
