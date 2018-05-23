@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { addSuffixToWeightField, createNewExercise } from './exercises';
 import { createNewPlan } from './plansList';
+import { showPlanExercises } from './manageSectionChange';
 import { showContentToAdd, manageLoadedContent } from './planExercisesList';
 
 export const saveExerciseToStorage = (exercise) => {
@@ -19,10 +20,6 @@ export const savePlanToStorage = (plan) => {
     }
     plans.push(plan);
     localStorage.setItem('plans', JSON.stringify(plans));
-}
-
-export const savePlanExercisesToStorage = (plan) => {
-
 }
 
 export const importDataFromStorage = () => {
@@ -76,10 +73,10 @@ export const sortExercises = (mode) => {
                 return a.name < b.name;
                 break;
             case 'sort-weight':
-                return a.weight < b.weight;
+                return parseFloat(a.weight) - parseFloat(b.weight);
                 break;
             case 'sort-weight-reverse':
-                return a.weight > b.weight;
+                return parseFloat(b.weight) - parseFloat(a.weight);
                 break;
         }
     });
@@ -129,6 +126,7 @@ export const updatePlanExercises = (selected, id, mode) => {
         }
     });
     localStorage.setItem('plans', JSON.stringify(plans));
+    showPlanExercises(findPlan(id));
 }
 
 export const loadAddedContent = (id) => {

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { loadMainMenu, loadPlansList, showPlanExercises, loadExerciseList } from './manageSectionChange';
 import { findPlan } from './storage';
+import { openAddPlanWindow } from './plansList';
 
 // Main Menu
 

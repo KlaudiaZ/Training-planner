@@ -14,8 +14,6 @@ export const plansListInit = () => {
     });
 }
 
-
-
 const bindAddNewPlan = () => {
     $('#add-plan').click((e) => {
         setPlanNumberLimit();
@@ -38,8 +36,7 @@ const bindAddPlanButtonOnForm = () => {
 }
 
 
-
-const openAddPlanWindow = (name, description, id, mode) => {
+export const openAddPlanWindow = (name, description, id, mode) => {
     $('#training-plans-menu').append($('<div class="popup-window" id="create-new-plan">').html(`
         <div class="popup-window-content" id="new-plan-content" data-item="${id}">
             <p>Plan name</p>

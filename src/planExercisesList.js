@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { loadExercisesToPick, updatePlanExercises, loadAddedContent } from './storage';
-import { openAddPlanWindow } from './plansList';
 import { bindBackButtonOnPlanExercises } from './navigation';
 
 export const planExercisesListInit = (plan) => {
@@ -11,10 +10,6 @@ export const planExercisesListInit = (plan) => {
         bindEditPlanButton(plan);
     });
 }
-
-
-
-
 
 const bindAddButton = () => {
     $('#add-exercises-plan').click((e) => {

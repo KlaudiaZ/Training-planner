@@ -108,11 +108,6 @@ export const showPlanExercises = (plan) => {
                     </button>
                 </div>
                 <div class="button-container">
-                    <button class="button navigation" id="edit-plan" data-plan="${plan.id}">
-                        <p class="button-text">Edit plan</p>
-                    </button>
-                </div>
-                <div class="button-container">
                     <button class="button navigation" id="go-back-exercises-plan">
                         <p class="button-text">Back</p>
                     </button>
