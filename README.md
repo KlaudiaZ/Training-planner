@@ -3,14 +3,12 @@ My small personal project through which I aim to create a functional mobile appl
 
 Written using jQuery, SCSS, and HTML5.
 
-Progress: about 75% of the app's features is finished.
+Progress: all basic features are finished. Minor cosmetic changes might be applied before the first release.
 
 - Current features:
   - can create and store a list of user-defined exercises
   - the list can be sorted, exercises can be modified and/or removed by the user
-
-- Features in-progress:
-  - creating separate editable lists ("plans", up to 10 different ones) of exercises picked by the user from the "main" list (mentioned above)
+  - can create and store unique, separate editable lists ("plans", up to 10 different ones) of exercises picked by the user from the "main" list (mentioned above)
 
 - Planned steps:
   - compile and host a complete beta version for preview purpose
