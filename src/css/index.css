@@ -1,132 +1,178 @@
 @font-face {
-  font-family: 'signikaregular';
-  src: url("/fonts/signika-regular-webfont.woff2") format("woff2"), url("/fonts/signika-regular-webfont.woff") format("woff"), url("/fonts/Signika-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
+    font-family: 'signikaregular';
+    src: url("/fonts/signika-regular-webfont.woff2") format("woff2"), url("/fonts/signika-regular-webfont.woff") format("woff"), url("/fonts/Signika-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 *,
 html,
 body {
-  font-family: 'signikaregular';
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
-  @media screen and (min-width: 768px) {
+    font-family: 'signikaregular';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 768px) {
     *,
     html,
     body {
-      font-size: 1.1rem; } }
-  @media screen and (min-width: 1368px) {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width: 1368px) {
     *,
     html,
     body {
-      font-size: 1.3rem; } }
-  @media screen and (min-width: 1920px) {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
     *,
     html,
     body {
-      font-size: 1.5rem; } }
-  * [data-visibility="invisible"],
-  html [data-visibility="invisible"],
-  body [data-visibility="invisible"] {
+        font-size: 1.5rem;
+    }
+}
+
+* [data-visibility="invisible"],
+html [data-visibility="invisible"],
+body [data-visibility="invisible"] {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    visibility: hidden; }
-  * [data-visibility="visible"],
-  html [data-visibility="visible"],
-  body [data-visibility="visible"] {
+    visibility: hidden;
+}
+
+* [data-visibility="visible"],
+html [data-visibility="visible"],
+body [data-visibility="visible"] {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1000;
-    visibility: visible; }
-  * p,
-  html p,
-  body p {
-    text-align: center; }
-  * img,
-  html img,
-  body img {
+    visibility: visible;
+}
+
+* p,
+html p,
+body p {
+    text-align: center;
+}
+
+* img,
+html img,
+body img {
     position: absolute;
     width: 1.5rem;
     top: calc(50% - 0.75rem);
-    left: calc(50% - 0.75rem); }
+    left: calc(50% - 0.75rem);
+}
 
 .main {
-  background: black url("/img/background_small.jpg") center scroll;
-  background-size: cover;
-  border: 1rem solid rgba(109, 108, 108, 0.603);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-position: center; }
-  @media screen and (min-width: 768px) {
+    background: black url("/img/background_small.jpg") center scroll;
+    background-size: cover;
+    border: 1rem solid rgba(109, 108, 108, 0.603);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+}
+
+@media screen and (min-width: 768px) {
     .main {
-      background: black url("/img/background_medium.jpg") center scroll; } }
-  @media screen and (min-width: 1368px) {
+        background: black url("/img/background_medium.jpg") center scroll;
+    }
+}
+
+@media screen and (min-width: 1368px) {
     .main {
-      background: black url("/img/background_large.jpg") center scroll; } }
-  @media screen and (min-width: 1920px) {
+        background: black url("/img/background_large.jpg") center scroll;
+    }
+}
+
+@media screen and (min-width: 1920px) {
     .main {
-      background: black url("/img/background_extra_large.jpg") center scroll; } }
+        background: black url("/img/background_extra_large.jpg") center scroll;
+    }
+}
 
 .button-container {
-  width: 50vw;
-  height: 15vh;
-  margin: 0;
-  padding: 0; }
+    width: 50vw;
+    height: 15vh;
+    margin: 0;
+    padding: 0;
+}
 
 .button-text {
-  margin: auto;
-  width: 100%;
-  vertical-align: middle; }
+    margin: auto;
+    width: 100%;
+    vertical-align: middle;
+}
 
 .button {
-  box-sizing: border-box;
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  text-transform: capitalize;
-  border: none;
-  position: relative;
-  overflow: visible; }
-  .button.navigation {
+    box-sizing: border-box;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+    border: none;
+    position: relative;
+    overflow: visible;
+}
+
+.button.navigation {
     background-color: rgba(219, 217, 217, 0.603) !important;
-    border: 0.75rem solid rgba(0, 0, 0, 0.705) !important; }
-    .button.navigation p.button-text {
-      color: #050611 !important; }
-    .button.navigation:hover {
-      background-color: rgba(55, 144, 216, 0.719) !important; }
-      .button.navigation:hover p {
-        color: rgba(24, 25, 24, 0.911) !important; }
-    .button.navigation:active {
-      transform: translate(2px, 2px); }
+    border: 0.75rem solid rgba(0, 0, 0, 0.705) !important;
+}
+
+.button.navigation p.button-text {
+    color: #050611 !important;
+}
+
+.button.navigation:hover {
+    background-color: rgba(55, 144, 216, 0.719) !important;
+}
+
+.button.navigation:hover p {
+    color: rgba(24, 25, 24, 0.911) !important;
+}
+
+.button.navigation:active {
+    transform: translate(2px, 2px);
+}
 
 .exercise-legend {
-  min-height: 3%; }
+    min-height: 3%;
+}
 
 .popup-window {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.4); }
-  .popup-window .popup-window-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-window .popup-window-content {
     background-color: #fefefe;
     padding: 20px;
     border: 1px solid #888;
@@ -136,69 +182,93 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center; }
-    .popup-window .popup-window-content.exercises-no-details {
-      justify-content: flex-start;
-      overflow-y: auto;
-      height: 60%; }
-      .popup-window .popup-window-content.exercises-no-details .button {
-        height: 10%;
-        width: 80%;
-        flex-shrink: 0; }
-        .popup-window .popup-window-content.exercises-no-details .button.selected {
-          background-color: aqua; }
-    .popup-window .popup-window-content.add {
-      min-height: 5vh;
-      height: 10vh;
-      padding: 0; }
-    .popup-window .popup-window-content .form-input {
-      border: 1px solid black;
-      width: 60%;
-      margin: 0px;
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      resize: none; }
-    .popup-window .popup-window-content .button {
-      border: 1px solid black;
-      width: 50%;
-      margin-top: 20px; }
-    .popup-window .popup-window-content .sort {
-      border: 1px solid black;
-      width: 75%;
-      height: 3rem; }
-    .popup-window .popup-window-content p {
-      margin: 0px;
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center; }
+    align-items: center;
+}
 
-.alert, .main.menu .about {
-  position: fixed;
-  top: 40%;
-  right: 30%;
-  bottom: 40%;
-  left: 30%;
-  z-index: 2000;
-  background-color: #ffd16e;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  padding: 1%; }
-  .alert .button, .main.menu .about .button {
+.popup-window .popup-window-content.exercises-no-details {
+    justify-content: flex-start;
+    overflow-y: auto;
+    height: 60%;
+}
+
+.popup-window .popup-window-content.exercises-no-details .button {
+    height: 10%;
+    width: 80%;
+    flex-shrink: 0;
+}
+
+.popup-window .popup-window-content.exercises-no-details .button.selected {
+    background-color: #ffb52f;
+}
+
+.popup-window .popup-window-content.add {
+    min-height: 5vh;
+    height: 10vh;
+    padding: 0;
+}
+
+.popup-window .popup-window-content .form-input {
+    border: 1px solid black;
+    width: 60%;
+    margin: 0px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    resize: none;
+}
+
+.popup-window .popup-window-content .button {
+    border: 1px solid black;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.popup-window .popup-window-content .sort {
+    border: 1px solid black;
+    width: 75%;
+    height: 3rem;
+}
+
+.popup-window .popup-window-content p {
+    margin: 0px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alert,
+.main.menu .about {
+    position: fixed;
+    top: 40%;
+    right: 30%;
+    bottom: 40%;
+    left: 30%;
+    z-index: 2000;
+    background-color: #ffd16e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 1%;
+}
+
+.alert .button,
+.main.menu .about .button {
     width: 10vw;
-    align-self: center; }
+    align-self: center;
+}
 
 .main.exercises {
-  justify-content: flex-start;
-  overflow: auto; }
-  .main.exercises .exercises-menu {
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+.main.exercises .exercises-menu {
     width: 100%;
     min-height: 75px;
     display: flex;
@@ -208,21 +278,31 @@ body {
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
-    padding: 0; }
-    .main.exercises .exercises-menu .button-container {
-      width: 20%;
-      text-align: center;
-      background-color: #fffdbf99;
-      height: auto; }
-  .main.exercises .button {
-    height: 75px; }
-    .main.exercises .button:active {
-      padding-top: 2px;
-      padding-left: 2px; }
-      .main.exercises .button:active img {
-        margin-top: 2px;
-        margin-left: 2px; }
-  .main.exercises .exercise {
+    padding: 0;
+}
+
+.main.exercises .exercises-menu .button-container {
+    width: 20%;
+    text-align: center;
+    background-color: #fffdbf99;
+    height: auto;
+}
+
+.main.exercises .button {
+    height: 75px;
+}
+
+.main.exercises .button:active {
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.main.exercises .button:active img {
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.main.exercises .exercise {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -235,89 +315,131 @@ body {
     padding: 0;
     background-color: #ffffffcc;
     border: 1px solid black;
-    font-size: 1.1rem; }
-    .main.exercises .exercise.exercise-legend {
-      background-color: #fde2b6cc; }
-    .main.exercises .exercise .row {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      margin-left: 2%;
-      position: relative;
-      min-height: 100%;
-      height: 50px;
-      padding: 1% 0; }
-      .main.exercises .exercise .row.name {
-        width: 33%; }
-      .main.exercises .exercise .row.series {
-        width: 15%; }
-      .main.exercises .exercise .row.reps {
-        width: 15%; }
-      .main.exercises .exercise .row.weight {
-        width: 20%; }
-      .main.exercises .exercise .row.misc {
-        width: 15%;
-        position: relative; }
+    font-size: 1.1rem;
+}
+
+.main.exercises .exercise.exercise-legend {
+    background-color: #fde2b6cc;
+}
+
+.main.exercises .exercise .row {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    position: relative;
+    min-height: 100%;
+    height: 50px;
+    padding: 1% 0;
+}
+
+.main.exercises .exercise .row.name {
+    width: 33%;
+}
+
+.main.exercises .exercise .row.series {
+    width: 15%;
+}
+
+.main.exercises .exercise .row.reps {
+    width: 15%;
+}
+
+.main.exercises .exercise .row.weight {
+    width: 20%;
+}
+
+.main.exercises .exercise .row.misc {
+    width: 15%;
+    position: relative;
+}
 
 #exercises-wrapper {
-  width: 100%; }
+    width: 100%;
+}
 
 .main.menu .about {
-  top: 10%;
-  right: 25%;
-  bottom: 10%;
-  left: 25%;
-  justify-content: flex-start;
-  padding: 20px; }
-  .main.menu .about .content {
+    top: 10%;
+    right: 25%;
+    bottom: 10%;
+    left: 25%;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.main.menu .about .content {
     overflow-y: auto;
     width: 100%;
-    height: calc(100% - 70px); }
-  .main.menu .about .button {
+    height: calc(100% - 70px);
+}
+
+.main.menu .about .button {
     height: 50px;
     width: 100px;
     position: absolute;
     left: calc(50% - 50px);
-    bottom: 20px; }
+    bottom: 20px;
+}
 
 .main.plans {
-  overflow: auto;
-  flex-wrap: wrap;
-  align-items: center; }
-  .main.plans .button-container {
-    width: 35vw; }
-    .main.plans .button-container .button {
-      background-color: rgba(175, 168, 158, 0.788); }
-      .main.plans .button-container .button p.button-text {
-        color: black; }
-      .main.plans .button-container .button:hover {
-        background-color: #050142; }
-        .main.plans .button-container .button:hover .button-text {
-          color: rgba(158, 151, 140, 0.7); }
-      .main.plans .button-container .button:active {
-        margin-top: 2px;
-        margin-left: 2px; }
+    overflow: auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main.plans .button-container {
+    width: 35vw;
+}
+
+.main.plans .button-container .button {
+    background-color: rgba(175, 168, 158, 0.788);
+}
+
+.main.plans .button-container .button p.button-text {
+    color: black;
+}
+
+.main.plans .button-container .button:hover {
+    background-color: #050142;
+}
+
+.main.plans .button-container .button:hover .button-text {
+    color: rgba(158, 151, 140, 0.7);
+}
+
+.main.plans .button-container .button:active {
+    margin-top: 2px;
+    margin-left: 2px;
+}
 
 #form-plan-name {
-  flex-grow: 0; }
+    flex-grow: 0;
+}
 
 #form-plan-description {
-  flex-grow: 0;
-  height: 25vh;
-  margin-bottom: 20px;
-  font-size: 1.3rem; }
+    flex-grow: 0;
+    height: 25vh;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
 
 .main.plan-details {
-  justify-content: flex-start;
-  overflow: auto; }
-  .main.plan-details .header {
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+.main.plan-details .header {
     width: 100%;
     background-color: #fde2b6cc;
-    border: 1px solid black; }
-    .main.plan-details .header.description {
-      font-size: 0.8rem !important; }
-  .main.plan-details .exercises-menu {
+    border: 1px solid black;
+}
+
+.main.plan-details .header.description {
+    font-size: 0.8rem !important;
+}
+
+.main.plan-details .exercises-menu {
     width: 100%;
     min-height: 75px;
     display: flex;
@@ -327,21 +449,31 @@ body {
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
-    padding: 0; }
-    .main.plan-details .exercises-menu .button-container {
-      width: 20%;
-      text-align: center;
-      background-color: #fffdbf99;
-      height: auto; }
-  .main.plan-details .button {
-    height: 75px; }
-    .main.plan-details .button:active {
-      padding-top: 2px;
-      padding-left: 2px; }
-      .main.plan-details .button:active img {
-        margin-top: 2px;
-        margin-left: 2px; }
-  .main.plan-details .exercise {
+    padding: 0;
+}
+
+.main.plan-details .exercises-menu .button-container {
+    width: 20%;
+    text-align: center;
+    background-color: #fffdbf99;
+    height: auto;
+}
+
+.main.plan-details .button {
+    height: 75px;
+}
+
+.main.plan-details .button:active {
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.main.plan-details .button:active img {
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.main.plan-details .exercise {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -354,37 +486,55 @@ body {
     padding: 0;
     background-color: #ffffffcc;
     border: 1px solid black;
-    font-size: 1.1rem; }
-    .main.plan-details .exercise.exercise-legend {
-      background-color: #fde2b6cc; }
-    .main.plan-details .exercise .row {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      margin-left: 2%;
-      position: relative;
-      min-height: 100%;
-      height: 50px;
-      padding: 1% 0; }
-      .main.plan-details .exercise .row.name {
-        width: 33%; }
-      .main.plan-details .exercise .row.series {
-        width: 15%; }
-      .main.plan-details .exercise .row.reps {
-        width: 15%; }
-      .main.plan-details .exercise .row.weight {
-        width: 20%; }
-      .main.plan-details .exercise .row.misc {
-        width: 15%;
-        position: relative; }
+    font-size: 1.1rem;
+}
+
+.main.plan-details .exercise.exercise-legend {
+    background-color: #fde2b6cc;
+}
+
+.main.plan-details .exercise .row {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    position: relative;
+    min-height: 100%;
+    height: 50px;
+    padding: 1% 0;
+}
+
+.main.plan-details .exercise .row.name {
+    width: 33%;
+}
+
+.main.plan-details .exercise .row.series {
+    width: 15%;
+}
+
+.main.plan-details .exercise .row.reps {
+    width: 15%;
+}
+
+.main.plan-details .exercise .row.weight {
+    width: 20%;
+}
+
+.main.plan-details .exercise .row.misc {
+    width: 15%;
+    position: relative;
+}
 
 #plan-exercises-wrapper {
-  width: 100%; }
+    width: 100%;
+}
 
 #add-selected-exercises {
-  background-color: white;
-  height: 5vh;
-  margin: 0; }
+    background-color: white;
+    height: 5vh;
+    margin: 0;
+}
+
 
 /*# sourceMappingURL=index.css.map */
