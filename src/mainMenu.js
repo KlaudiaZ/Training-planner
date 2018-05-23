@@ -17,7 +17,7 @@ const bindAboutButton = () => {
             <br />
             <p>Version: 1.0</p>
             <br />
-            <p>Author: Klaudia Zając</p>
+            <p>Author: Klaudia Zajac</p>
             <p>Contact: klaudia.zajac@email.com</p>
             <br />
             <p>Welcome to the Training Planner app!</p>
