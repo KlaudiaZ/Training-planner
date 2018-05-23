@@ -1,15 +1,12 @@
 import './css/index.css';
 import $ from 'jquery';
-import { mainMenuInit } from './mainMenu';
-import { plansListInit } from './plansList';
-import { exercisesInit } from './exercises';
-import { importDataFromStorage } from './storage';
+import { loadMainMenu } from './manageSectionChange';
+
+
+
 console.log('JavaScript was attached to the page!');
 
 $(() => {
     console.log('Locked and loaded!');
-    importDataFromStorage();
-    mainMenuInit();
-    plansListInit();
-    exercisesInit();
+    loadMainMenu();
 });

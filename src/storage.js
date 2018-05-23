@@ -140,3 +140,15 @@ export const loadAddedContent = (id) => {
         });
     manageLoadedContent(exercisesToLoad, id);
 }
+
+export const updatePlanProperties = (id, newName, newDescription) => {
+    const plans = JSON.parse(localStorage.getItem('plans'));
+    plans.find((plan, index) => {
+        if (plan.id === id) {
+            plan.name = newName;
+            plan.description = newDescription;
+            plans.splice(index, 0, plan);
+        }
+    });
+    localStorage.setItem('plans', JSON.stringify(plans));
+}

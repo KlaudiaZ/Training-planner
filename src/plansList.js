@@ -1,22 +1,20 @@
 import $ from 'jquery';
+import { bindBackButtonOnPlans, bindPlanClick } from './navigation';
 import { createNewId } from './idGenerator';
-import { savePlanToStorage, findPlan } from './storage';
+import { savePlanToStorage, findPlan, updatePlanProperties } from './storage';
 import { planExercisesListInit, showPlanExercises } from './planExercisesList';
 
 // add input validation
 
 export const plansListInit = () => {
-    bindBackButtonOnPlans();
-    bindAddNewPlan();
-    bindPlanClick();
-}
-
-const bindBackButtonOnPlans = () => {
-    $('#go-back-plans').click((e) => {
-        $('#main-menu').attr('data-visibility', 'visible');
-        $('#training-plans-menu').attr('data-visibility', 'invisible');
+    $(() => {
+        bindBackButtonOnPlans();
+        bindAddNewPlan();
+        bindPlanClick();
     });
 }
+
+
 
 const bindAddNewPlan = () => {
     $('#add-plan').click((e) => {
@@ -39,12 +37,7 @@ const bindAddPlanButtonOnForm = () => {
     });
 }
 
-const bindPlanClick = () => {
-    $('.plan').click((e) => {
-        showPlanExercises(findPlan(e.currentTarget.id));
-        planExercisesListInit(findPlan(e.currentTarget.id));
-    });
-}
+
 
 const openAddPlanWindow = (name, description, id, mode) => {
     $('#training-plans-menu').append($('<div class="popup-window" id="create-new-plan">').html(`
@@ -52,10 +45,18 @@ const openAddPlanWindow = (name, description, id, mode) => {
             <p>Plan name</p>
             <input type="text" class="form-input" id="form-plan-name" value=${name}>
             <p>Description</p>
-            <textarea class="form-input" id="form-plan-description" value=${description}></textarea>
+            <textarea class="form-input" id="form-plan-description">${description}</textarea>
             <button class="button" id="${mode}-plan-form">${mode}</button>
         </div>
     `));
+    if (mode === "edit") {
+        $('#new-plan-content').append($(`
+            <button class="button" id="delete-plan-form">Delete plan</button>
+        `));
+        bindPlanEdit(id);
+    }
+    bindAreaAroundPlanForm();
+    bindAddPlanButtonOnForm();
 }
 
 const hidePlanForm = () => {
@@ -66,15 +67,17 @@ const addPlan = () => {
     const plan = getPlanFormValues();
     createNewPlan(plan);
     savePlanToStorage(plan);
+    bindPlanClick();
 }
 
-const getPlanFormValues = () => {
+const getPlanFormValues = (id) => {
     const plan = {
-        id: createNewId(),
+        id: id ? id : createNewId(),
         name: $('#form-plan-name').val(),
         description: $('#form-plan-description').val(),
         exercises: [],
     };
+    console.log(plan);
     return plan;
 }
 
@@ -88,8 +91,6 @@ export const createNewPlan = (plan) => {
 
 const showPlanPropertiesWindow = () => {
     openAddPlanWindow("", "", "", "add");
-    bindAreaAroundPlanForm();
-    bindAddPlanButtonOnForm();
 }
 
 const setPlanNumberLimit = () => {
@@ -103,4 +104,11 @@ const setPlanNumberLimit = () => {
     } else {
         showPlanPropertiesWindow();
     }
+}
+
+const bindPlanEdit = (id) => {
+    $('#edit-plan-form').click((e) => {
+        const plan = getPlanFormValues(id);
+        updatePlanProperties(id, plan.name, plan.description);
+    })
 }

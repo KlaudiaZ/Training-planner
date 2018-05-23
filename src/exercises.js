@@ -1,22 +1,18 @@
 import $ from 'jquery';
+import { bindBackButtonOnExercisesMenu } from './navigation';
 import { saveExerciseToStorage, deleteItemFromStorage, updateModifiedItem, sortExercises } from './storage';
 import { createNewId } from './idGenerator';
 
-// preserve ID of a modified item
-
 export const exercisesInit = () => {
-    bindBackButtonOnExercisesMenu();
-    bindAddButtonOnExercisesMenu();
-    bindMiscButton();
-    bindSortExercisesButton();
-}
-
-const bindBackButtonOnExercisesMenu = () => {
-    $('#go-back-exercises').click((e) => {
-        $('#main-menu').attr('data-visibility', 'visible');
-        $('#exercises-list').attr('data-visibility', 'invisible');
+    $(() => {
+        bindBackButtonOnExercisesMenu();
+        bindAddButtonOnExercisesMenu();
+        bindMiscButton();
+        bindSortExercisesButton();
     });
 }
+
+
 
 const bindAddButtonOnExercisesMenu = () => {
     $('#add-exercise-main').click((e) => {
