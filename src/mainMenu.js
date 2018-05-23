@@ -15,7 +15,7 @@ const bindAboutButton = () => {
         showAbout(`
             <p>Training Planner</p>
             <br />
-            <p>Version: 0.9</p>
+            <p>Version: 1.0</p>
             <br />
             <p>Author: Klaudia Zając</p>
             <p>Contact: klaudia.zajac@email.com</p>
