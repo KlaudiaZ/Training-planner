@@ -85,6 +85,7 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            resize: none;
         }
         .button {
             border: 1px solid black;
@@ -111,10 +112,20 @@
 
 .alert {
     position: fixed;
-    top: 20%;
-    right: 10%;
-    bottom: 20%;
-    left: 10%;
+    top: 40%;
+    right: 30%;
+    bottom: 40%;
+    left: 30%;
     z-index: 2000;
-    background-color: #fff;
+    background-color: rgb(255, 209, 110);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 1%;
+    .button {
+        width: 10vw;
+        align-self: center;
+    }
 }

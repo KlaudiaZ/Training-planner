@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { addSuffixToWeightField, createNewExercise } from './exercises';
 import { createNewPlan } from './plansList';
-import { showPlanExercises } from './manageSectionChange';
+import { showPlanExercises, loadPlansList } from './manageSectionChange';
 import { showContentToAdd, manageLoadedContent } from './planExercisesList';
 
 export const saveExerciseToStorage = (exercise) => {
@@ -120,7 +120,6 @@ export const updatePlanExercises = (selected, id, mode) => {
                 case 'delete':
                     const index = plan.exercises.indexOf(selected);
                     plan.exercises.splice(index, 1);
-                    console.log(plan);
                     break;
             }
         }
@@ -139,14 +138,18 @@ export const loadAddedContent = (id) => {
     manageLoadedContent(exercisesToLoad, id);
 }
 
-export const updatePlanProperties = (id, newName, newDescription) => {
+export const updatePlanProperties = (id, newName, newDescription, mode) => {
     const plans = JSON.parse(localStorage.getItem('plans'));
-    plans.find((plan, index) => {
+    const newPlan = findPlan(id);
+    newPlan.name = newName;
+    newPlan.description = newDescription;
+    plans.forEach((plan, index) => {
         if (plan.id === id) {
-            plan.name = newName;
-            plan.description = newDescription;
-            plans.splice(index, 0, plan);
+            mode === "delete" ?
+                plans.splice(index, 1) :
+                plans.splice(index, 1, newPlan);
         }
     });
     localStorage.setItem('plans', JSON.stringify(plans));
+    loadPlansList();
 }

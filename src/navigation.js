@@ -3,6 +3,7 @@ import { loadMainMenu, loadPlansList, showPlanExercises, loadExerciseList } from
 import { findPlan } from './storage';
 import { openAddPlanWindow } from './plansList';
 
+
 // Main Menu
 
 export const bindTrainingPlansButton = () => {

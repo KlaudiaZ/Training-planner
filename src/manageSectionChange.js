@@ -136,3 +136,12 @@ export const showPlanExercises = (plan) => {
     `);
     planExercisesListInit(plan);
 }
+
+export const displayAlert = (content, buttons, z) => {
+    $('.main').append($(`<div class="popup-window" style="z-index:${z}">`).html(`
+            <div class="alert">
+                <p>${content}</p>
+                <div>${buttons}</div>
+            </div>
+        `));
+}

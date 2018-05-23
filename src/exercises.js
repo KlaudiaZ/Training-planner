@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { bindBackButtonOnExercisesMenu } from './navigation';
 import { saveExerciseToStorage, deleteItemFromStorage, updateModifiedItem, sortExercises } from './storage';
 import { createNewId } from './idGenerator';
+import { displayAlert } from './manageSectionChange';
 
 export const exercisesInit = () => {
     $(() => {
@@ -103,6 +104,7 @@ export const createNewExercise = (id, name, series, reps, weight) => {
 }
 
 const showExerciseForm = (name, series, reps, weight, mode, id) => {
+    console.log(name)
     $('#exercises-list').append($('<div class="popup-window" id="new-exercise-form" data-visibility="visible">').html(`
         <div class="popup-window-content" id="exercise-form-content" data-item="${id}">
                 <p>Exercise name</p>
@@ -161,11 +163,16 @@ const getFormInputValues = (target) => {
 
 const validateInputs = (exercise) => {
     let validation = true;
+    let alertZIndex = 3000;
     Object.entries(exercise).forEach(([key, value]) => {
         if (key !== "weight") {
             if (value.trim() === "") {
-                alert(key + " cannot be empty!");
+                displayAlert(key + " field cannot be empty!",
+                    `<button class="button navigation validation-error">OK</button>`,
+                    alertZIndex);
+                bindOkOnAlert();
                 validation = false;
+                alertZIndex--;
             }
         } else {
             addSuffixToWeightField(value, exercise);
@@ -228,4 +235,17 @@ const bindSortingWindow = () => {
             hideSortingWindow();
         }
     });
+}
+
+const bindOkOnAlert = () => {
+    $('.validation-error').click((e) => {
+        console.log('bye')
+        removeAlert();
+    });
+}
+
+const removeAlert = () => {
+    console.log('bye')
+    $('.alert').parent().remove();
+    $('.alert').remove();
 }

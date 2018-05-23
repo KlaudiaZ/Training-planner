@@ -146,7 +146,8 @@ body {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      align-items: center; }
+      align-items: center;
+      resize: none; }
     .popup-window .popup-window-content .button {
       border: 1px solid black;
       width: 50%;
@@ -167,12 +168,21 @@ body {
 
 .alert {
   position: fixed;
-  top: 20%;
-  right: 10%;
-  bottom: 20%;
-  left: 10%;
+  top: 40%;
+  right: 30%;
+  bottom: 40%;
+  left: 30%;
   z-index: 2000;
-  background-color: #fff; }
+  background-color: #ffd16e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 1%; }
+  .alert .button {
+    width: 10vw;
+    align-self: center; }
 
 .main.exercises {
   justify-content: flex-start;
