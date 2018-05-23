@@ -104,7 +104,6 @@ export const createNewExercise = (id, name, series, reps, weight) => {
 }
 
 const showExerciseForm = (name, series, reps, weight, mode, id) => {
-    console.log(name)
     $('#exercises-list').append($('<div class="popup-window" id="new-exercise-form" data-visibility="visible">').html(`
         <div class="popup-window-content" id="exercise-form-content" data-item="${id}">
                 <p>Exercise name</p>

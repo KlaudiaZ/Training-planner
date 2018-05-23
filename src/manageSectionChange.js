@@ -36,9 +36,6 @@ export const loadPlansList = () => {
                     <p class="button-text">Back</p>
                 </button>
             </div>
-            <div class="pop-up">
-
-            </div>
         </div>
     `);
     plansListInit();

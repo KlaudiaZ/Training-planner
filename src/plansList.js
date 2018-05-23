@@ -33,18 +33,16 @@ const bindAreaAroundPlanForm = () => {
 const bindAddPlanButtonOnForm = () => {
     $('#add-plan-form').click((e) => {
         addPlan();
-        loadPlansList();
     });
 }
 
 
 export const openAddPlanWindow = (name, description, id, mode) => {
-    console.log(name)
     $('#training-plans-menu').append($('<div class="popup-window" id="create-new-plan">').html(`
         <div class="popup-window-content" id="new-plan-content" data-item="${id}">
             <p>Plan name</p>
             <input type="text" class="form-input" id="form-plan-name" value="${name}">
-            <p>Description</p>
+            <p>Description (optional)</p>
             <textarea class="form-input" id="form-plan-description">${description}</textarea>
             <button class="button" id="${mode}-plan-form">${mode}</button>
         </div>
@@ -66,9 +64,16 @@ const hidePlanForm = () => {
 
 const addPlan = () => {
     const plan = getPlanFormValues();
-    createNewPlan(plan);
-    savePlanToStorage(plan);
-    bindPlanClick();
+    if (validatePlanName(plan.name)) {
+        createNewPlan(plan);
+        savePlanToStorage(plan);
+        loadPlansList();
+    } else {
+        displayAlert('name field cannot be empty!',
+            `<button class="button navigation" id="plans-error">OK</button>`,
+            3000);
+        bindOkOnAlert();
+    }
 }
 
 const getPlanFormValues = (id) => {
@@ -99,7 +104,7 @@ const setPlanNumberLimit = () => {
     if (plans) {
         if (plans.length === 10) {
             displayAlert('You have reached the maximum amount of training plans!',
-                `<button class="button navigation" id="max-plans">OK</button>`,
+                `<button class="button navigation" id="plans-error">OK</button>`,
                 3000);
             bindOkOnAlert();
         } else {
@@ -129,7 +134,7 @@ const bindPlanDelete = (id) => {
 }
 
 const bindOkOnAlert = () => {
-    $('#max-plans').click((e) => {
+    $('#plans-error').click((e) => {
         removeAlert();
     });
 }
@@ -150,4 +155,12 @@ const bindCancelOnAlert = () => {
     $('#cancel').click((e) => {
         removeAlert();
     });
+}
+
+const validatePlanName = (name) => {
+    let validation = true
+    if (name.trim() === "") {
+        validation = false;
+    }
+    return validation;
 }
