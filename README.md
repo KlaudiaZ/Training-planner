@@ -3,7 +3,7 @@ My small personal project through which I aim to create a functional mobile appl
 
 Written using jQuery, SCSS, and HTML5.
 
-Progress: all basic features are finished. Minor cosmetic changes might be applied before the first release.
+Progress: v1.0 is now available.
 
 - Current features:
   - can create and store a list of user-defined exercises
@@ -11,7 +11,6 @@ Progress: all basic features are finished. Minor cosmetic changes might be appli
   - can create and store unique, separate editable lists ("plans", up to 10 different ones) of exercises picked by the user from the "main" list (mentioned above)
 
 - Planned steps:
-  - compile and host a complete beta version for preview purpose
-  - rewrite the application and create its mobile counterpart using React and React Native.
+  - rewrite the application and create its mobile counterpart using React Native.
 
-Creator's note: Please keep in mind that I began writing this application way before I knew about React. Therefore, while I want to finish writing it in jQuery for the sake of practice, the current version will not be converted to mobile. Consider it a functional prototype, sort of, as I'm planning to make the final version much clearer, neater, and hopefully more professional.
+Creator's note: Please keep in mind that I began writing this application way before I knew about React. Therefore, while I wanted to finish writing it in jQuery for the sake of practice, the current version will not be converted to mobile. Consider it a functional prototype, sort of, as I'm planning to make the final version much clearer, neater, and hopefully more professional.
