@@ -1,8 +1,9 @@
 import $ from 'jquery';
 import { addSuffixToWeightField, createNewExercise } from './exercises';
 import { createNewPlan } from './plansList';
-import { showPlanExercises, loadPlansList } from './manageSectionChange';
+import { showPlanExercises, loadPlansList, displayAlert } from './manageSectionChange';
 import { showContentToAdd, manageLoadedContent } from './planExercisesList';
+
 
 export const saveExerciseToStorage = (exercise) => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
@@ -61,26 +62,28 @@ export const updateModifiedItem = (id, exercise) => {
 
 export const sortExercises = (mode) => {
     let exercises = JSON.parse(localStorage.getItem('exercises'));
-    exercises.sort((a, b) => {
-        switch (mode) {
-            case 'sort-default':
-                return 0;
-                break;
-            case 'sort-alphabetically':
-                return a.name > b.name;
-                break;
-            case 'sort-alphabetically-reverse':
-                return a.name < b.name;
-                break;
-            case 'sort-weight':
-                return parseFloat(a.weight) - parseFloat(b.weight);
-                break;
-            case 'sort-weight-reverse':
-                return parseFloat(b.weight) - parseFloat(a.weight);
-                break;
-        }
-    });
-    refreshList(exercises);
+    if (exercises) {
+        exercises.sort((a, b) => {
+            switch (mode) {
+                case 'sort-default':
+                    return 0;
+                    break;
+                case 'sort-alphabetically':
+                    return a.name > b.name;
+                    break;
+                case 'sort-alphabetically-reverse':
+                    return a.name < b.name;
+                    break;
+                case 'sort-weight':
+                    return parseFloat(a.weight) - parseFloat(b.weight);
+                    break;
+                case 'sort-weight-reverse':
+                    return parseFloat(b.weight) - parseFloat(a.weight);
+                    break;
+            }
+        });
+        refreshList(exercises);
+    }
 }
 
 const refreshList = (exercises) => {
@@ -99,12 +102,19 @@ export const findPlan = (id) => {
 
 export const loadExercisesToPick = (id) => {
     const allExercises = JSON.parse(localStorage.getItem('exercises'));
-    const plan = findPlan(id);
-    const exercisesToAdd =
-        allExercises.filter((exercise) => {
-            return !plan.exercises.includes(exercise.id)
-        });
-    showContentToAdd(exercisesToAdd);
+    if (allExercises) {
+        const plan = findPlan(id);
+        const exercisesToAdd =
+            allExercises.filter((exercise) => {
+                return !plan.exercises.includes(exercise.id)
+            });
+        showContentToAdd(exercisesToAdd);
+    } else {
+        displayAlert("You must create exercises first!",
+            `<button class="button navigation close">Close</button>`,
+            3000);
+        bindOkOnAlert();
+    }
 }
 
 export const updatePlanExercises = (selected, id, mode) => {
@@ -130,12 +140,14 @@ export const updatePlanExercises = (selected, id, mode) => {
 
 export const loadAddedContent = (id) => {
     const allExercises = JSON.parse(localStorage.getItem('exercises'));
-    const plan = findPlan(id);
-    const exercisesToLoad =
-        allExercises.filter((exercise) => {
-            return plan.exercises.includes(exercise.id)
-        });
-    manageLoadedContent(exercisesToLoad, id);
+    if (allExercises) {
+        const plan = findPlan(id);
+        const exercisesToLoad =
+            allExercises.filter((exercise) => {
+                return plan.exercises.includes(exercise.id)
+            });
+        manageLoadedContent(exercisesToLoad, id);
+    }
 }
 
 export const updatePlanProperties = (id, newName, newDescription, mode) => {
@@ -152,4 +164,16 @@ export const updatePlanProperties = (id, newName, newDescription, mode) => {
     });
     localStorage.setItem('plans', JSON.stringify(plans));
     loadPlansList();
+}
+
+const bindOkOnAlert = () => {
+    $('.close').click((e) => {
+        removeAlert();
+    });
+}
+
+const removeAlert = () => {
+    $('.popup-window').remove();
+    $('.alert').parent().remove();
+    $('.alert').remove();
 }

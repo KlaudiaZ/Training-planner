@@ -7,7 +7,6 @@ export const planExercisesListInit = (plan) => {
         bindBackButtonOnPlanExercises();
         bindAddButton();
         loadAddedContent(plan.id);
-        bindEditPlanButton(plan);
     });
 }
 
@@ -116,12 +115,6 @@ const bindExerciseDeleteButton = (plan) => {
             updatePlanExercises(this.id, plan, "delete");
             this.remove();
         }
-    });
-}
-
-const bindEditPlanButton = (plan) => {
-    $('#edit-plan').click((e) => {
-
     });
 }
 
